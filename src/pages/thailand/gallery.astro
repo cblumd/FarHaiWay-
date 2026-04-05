@@ -1,0 +1,63 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+
+const menuItems = [
+  { label: 'Bangkok',    href: '/thailand/bangkok'    },
+  { label: 'Nonthaburi', href: '/thailand/nonthaburi' },
+  { label: 'Koh Samet',  href: '/thailand/kohsamet'   },
+  { separator: true },
+  { label: '← Back to Thailand', href: '/thailand' },
+];
+const breadcrumbs = [
+  { label: 'Home',     href: '/'         },
+  { label: 'Thailand', href: '/thailand' },
+];
+
+const cities = [
+  { name: 'Bangkok',    sub: 'กรุงเทพฯ · 曼谷',  href: '/thailand/bangkok/gallery'    },
+  { name: 'Nonthaburi', sub: 'นนทบุรี · 暖武里', href: '/thailand/nonthaburi/gallery' },
+  { name: 'Koh Samet',  sub: 'เกาะเสม็ด · 沙美岛', href: '/thailand/kohsamet/gallery'   },
+];
+---
+<MainLayout title="Thailand — Full Gallery | FarHaiWay" menuItems={menuItems} breadcrumbs={breadcrumbs}>
+
+  <div slot="watermark" class="absolute inset-0 z-0 opacity-15 grayscale blur-[60px] pointer-events-none mix-blend-multiply transform scale-110">
+    <svg width="100%" height="100%" preserveAspectRatio="none">
+      <rect width="100%" height="16.66%" fill="#A51931" />
+      <rect y="16.66%" width="100%" height="16.66%" fill="#F4F5F8" />
+      <rect y="33.33%" width="100%" height="33.33%" fill="#2D2A4A" />
+      <rect y="66.66%" width="100%" height="16.66%" fill="#F4F5F8" />
+      <rect y="83.33%" width="100%" height="16.66%" fill="#A51931" />
+    </svg>
+  </div>
+
+  <div class="flex flex-col items-center gap-8 w-full max-w-3xl">
+    <div>
+      <h1 class="text-5xl font-bold text-[#F4E4BC] drop-shadow-md">Thailand — Full Gallery</h1>
+      <p class="text-xl text-[#E0F7FA] mt-2 font-medium tracking-wide text-center">ประเทศไทย · 泰国</p>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 w-full mt-2">
+      {cities.map(city => (
+        <a
+          href={city.href}
+          class="group flex flex-col items-center gap-3 p-5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 hover:scale-105 transition-all duration-300"
+        >
+          <svg class="w-28 h-24" viewBox="0 0 96 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="16" width="92" height="60" rx="4" fill="#B8925A"/>
+            <path d="M2 16 L2 9 Q2 7 5 7 L32 7 Q35 7 37 9 L43 16 Z" fill="#C9A06E"/>
+            <rect x="2" y="24" width="92" height="52" rx="4" fill="#F4E4BC"/>
+            <line x1="14" y1="38" x2="82" y2="38" stroke="#C9A06E" stroke-width="1.5" stroke-opacity="0.6"/>
+            <line x1="14" y1="50" x2="82" y2="50" stroke="#C9A06E" stroke-width="1.5" stroke-opacity="0.6"/>
+            <line x1="14" y1="62" x2="82" y2="62" stroke="#C9A06E" stroke-width="1.5" stroke-opacity="0.6"/>
+          </svg>
+          <div class="text-center">
+            <p class="text-[#F4E4BC] font-bold text-lg group-hover:text-white transition-colors leading-tight">{city.name}</p>
+            <p class="text-[#E0F7FA] text-xs mt-1 opacity-70">{city.sub}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+
+</MainLayout>

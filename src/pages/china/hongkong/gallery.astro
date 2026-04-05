@@ -1,0 +1,48 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+const menuItems = [
+  { label: 'Zhuhai',    href: '/china/zhuhai'    },
+  { label: 'Guangzhou', href: '/china/guangzhou' },
+  { label: 'Shenzhen',  href: '/china/shenzhen'  },
+  { label: 'Macau',     href: '/china/macau'     },
+  { separator: true },
+  { label: '← Back to Hong Kong', href: '/china/hongkong' },
+];
+const breadcrumbs = [
+  { label: 'Home',      href: '/'                },
+  { label: 'China',     href: '/china'           },
+  { label: 'Hong Kong', href: '/china/hongkong'  },
+];
+---
+<MainLayout title="Gallery — Hong Kong | FarHaiWay" menuItems={menuItems} breadcrumbs={breadcrumbs}>
+
+  <div slot="watermark" class="absolute top-10 left-10 opacity-15 pointer-events-none transform scale-150 origin-top-left z-0">
+    <svg width="200" height="150" viewBox="0 0 300 200" fill="#F4E4BC">
+      <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(1.5) translate(10,15)" />
+      <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(0.5) translate(280,20) rotate(20)" />
+      <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(0.5) translate(340,70) rotate(40)" />
+      <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(0.5) translate(340,140) rotate(0)" />
+      <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(0.5) translate(280,190) rotate(-20)" />
+    </svg>
+  </div>
+
+  <div class="flex flex-col items-center gap-6">
+    <a href="#" class="group hover:scale-105 transition-transform duration-300">
+      <svg width="280" height="220" viewBox="0 0 96 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="16" width="92" height="60" rx="4" fill="#B8925A"/>
+        <path d="M2 16 L2 9 Q2 7 5 7 L32 7 Q35 7 37 9 L43 16 Z" fill="#C9A06E"/>
+        <rect x="2" y="24" width="92" height="52" rx="4" fill="#F4E4BC"/>
+        <line x1="14" y1="38" x2="82" y2="38" stroke="#C9A06E" stroke-width="1.5" stroke-opacity="0.6"/>
+        <line x1="14" y1="50" x2="82" y2="50" stroke="#C9A06E" stroke-width="1.5" stroke-opacity="0.6"/>
+        <line x1="14" y1="62" x2="82" y2="62" stroke="#C9A06E" stroke-width="1.5" stroke-opacity="0.6"/>
+      </svg>
+    </a>
+    <h1 class="text-5xl font-bold text-[#F4E4BC] drop-shadow-md">Gallery for Hong Kong</h1>
+    <p class="text-xl text-[#E0F7FA] font-medium tracking-wide">香港 · ฮ่องกง</p>
+    <div class="mt-4 bg-white/10 px-8 py-4 rounded-xl backdrop-blur-sm border border-white/20 text-[#E0F7FA] text-center max-w-md">
+      <p class="text-base">Google Drive link coming soon.</p>
+      <p class="text-sm opacity-60 mt-1">Media will open in a view-only Drive folder.</p>
+    </div>
+  </div>
+
+</MainLayout>

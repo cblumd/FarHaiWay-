@@ -1,0 +1,67 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+
+const menuItems = [
+  { label: 'Zhuhai',    href: '/china/zhuhai'    },
+  { label: 'Guangzhou', href: '/china/guangzhou' },
+  { label: 'Shenzhen',  href: '/china/shenzhen'  },
+  { label: 'Hong Kong', href: '/china/hongkong'  },
+  { label: 'Macau',     href: '/china/macau'     },
+  { separator: true },
+  { label: '← Back to China', href: '/china' },
+];
+const breadcrumbs = [
+  { label: 'Home',  href: '/'     },
+  { label: 'China', href: '/china'},
+];
+
+const cities = [
+  { name: 'Zhuhai',    sub: '珠海 · จูไห่',       href: '/china/zhuhai/gallery'    },
+  { name: 'Guangzhou', sub: '广州 · กวางโจว',      href: '/china/guangzhou/gallery' },
+  { name: 'Shenzhen',  sub: '深圳 · เซินเจิ้น',    href: '/china/shenzhen/gallery'  },
+  { name: 'Hong Kong', sub: '香港 · ฮ่องกง',       href: '/china/hongkong/gallery'  },
+  { name: 'Macau',     sub: '澳门 · มาเก๊า',       href: '/china/macau/gallery'     },
+];
+---
+<MainLayout title="China — Full Gallery | FarHaiWay" menuItems={menuItems} breadcrumbs={breadcrumbs}>
+
+  <div slot="watermark" class="absolute top-10 left-10 opacity-15 pointer-events-none transform scale-150 origin-top-left z-0">
+    <svg width="200" height="150" viewBox="0 0 300 200" fill="#F4E4BC">
+      <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(1.5) translate(10,15)" />
+      <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(0.5) translate(280,20) rotate(20)" />
+      <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(0.5) translate(340,70) rotate(40)" />
+      <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(0.5) translate(340,140) rotate(0)" />
+      <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(0.5) translate(280,190) rotate(-20)" />
+    </svg>
+  </div>
+
+  <div class="flex flex-col items-center gap-8 w-full max-w-3xl">
+    <div>
+      <h1 class="text-5xl font-bold text-[#F4E4BC] drop-shadow-md">China — Full Gallery</h1>
+      <p class="text-xl text-[#E0F7FA] mt-2 font-medium tracking-wide text-center">中国 · ประเทศจีน</p>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 w-full mt-2">
+      {cities.map(city => (
+        <a
+          href={city.href}
+          class="group flex flex-col items-center gap-3 p-5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 hover:scale-105 transition-all duration-300"
+        >
+          <svg class="w-28 h-24" viewBox="0 0 96 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="16" width="92" height="60" rx="4" fill="#B8925A"/>
+            <path d="M2 16 L2 9 Q2 7 5 7 L32 7 Q35 7 37 9 L43 16 Z" fill="#C9A06E"/>
+            <rect x="2" y="24" width="92" height="52" rx="4" fill="#F4E4BC"/>
+            <line x1="14" y1="38" x2="82" y2="38" stroke="#C9A06E" stroke-width="1.5" stroke-opacity="0.6"/>
+            <line x1="14" y1="50" x2="82" y2="50" stroke="#C9A06E" stroke-width="1.5" stroke-opacity="0.6"/>
+            <line x1="14" y1="62" x2="82" y2="62" stroke="#C9A06E" stroke-width="1.5" stroke-opacity="0.6"/>
+          </svg>
+          <div class="text-center">
+            <p class="text-[#F4E4BC] font-bold text-lg group-hover:text-white transition-colors leading-tight">{city.name}</p>
+            <p class="text-[#E0F7FA] text-xs mt-1 opacity-70">{city.sub}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+
+</MainLayout>
