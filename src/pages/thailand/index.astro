@@ -15,6 +15,11 @@ const breadcrumbs = [
 ---
 <MainLayout title="Thailand Adventures | FarHaiWay" menuItems={menuItems} breadcrumbs={breadcrumbs}>
 
+  <!-- Triggers for Peer Logic -->
+  <input type="radio" name="lang-peer" id="lang-en" class="peer/en hidden" checked />
+  <input type="radio" name="lang-peer" id="lang-th" class="peer/th hidden" />
+  <input type="radio" name="lang-peer" id="lang-ch" class="peer/ch hidden" />
+
   <!-- Watermark: Thai flag stripes -->
   <div slot="watermark" class="absolute inset-0 z-0 opacity-15 grayscale blur-[60px] pointer-events-none mix-blend-multiply transform scale-110">
     <svg width="100%" height="100%" preserveAspectRatio="none">
@@ -29,7 +34,7 @@ const breadcrumbs = [
   <!-- EN -->
   <div class="hidden peer-checked/en:flex flex-col items-center">
     <h1 class="text-7xl font-bold text-[#F4E4BC] drop-shadow-md">Thailand</h1>
-    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">My adventures in Thailand</p>
+    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">Check out my adventures in Thailand</p>
     <div class="max-w-2xl mt-12 bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/20 text-white text-left shadow-lg">
       <p class="text-lg leading-relaxed mb-4">I began my Asian adventures in Thailand back in 2016. I originally lived in the Ladphrao area of Bangkok before eventually moving to Nonthaburi. I still maintain an apartment there, traveling back once a month from my current base in Zhuhai.</p>
       <p class="text-lg leading-relaxed">Over the years, I've had the incredible privilege of learning to speak, read, and write Thai, deeply enriching my travels and connections.</p>
