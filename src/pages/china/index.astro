@@ -17,6 +17,11 @@ const breadcrumbs = [
 ---
 <MainLayout title="China Adventures | FarHaiWay" menuItems={menuItems} breadcrumbs={breadcrumbs}>
 
+  <!-- Triggers for Peer Logic -->
+  <input type="radio" name="lang-peer" id="lang-en" class="peer/en hidden" checked />
+  <input type="radio" name="lang-peer" id="lang-th" class="peer/th hidden" />
+  <input type="radio" name="lang-peer" id="lang-ch" class="peer/ch hidden" />
+
   <!-- Watermark: 5-star constellation -->
   <div slot="watermark" class="absolute top-10 left-10 opacity-15 pointer-events-none transform scale-150 origin-top-left z-0">
     <svg width="200" height="150" viewBox="0 0 300 200" fill="#F4E4BC">
@@ -31,7 +36,7 @@ const breadcrumbs = [
   <!-- EN -->
   <div class="hidden peer-checked/en:flex flex-col items-center">
     <h1 class="text-7xl font-bold text-[#F4E4BC] drop-shadow-md">China</h1>
-    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">My adventures in China</p>
+    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">Check out my adventures in China</p>
     <div class="max-w-2xl mt-12 bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/20 text-white text-left shadow-lg">
       <p class="text-lg leading-relaxed mb-4">I am currently based in the coastal city of Zhuhai, working as a high school teacher. I spend my days teaching math, basic science, and economics to 10th and 11th-grade ESL students.</p>
       <p class="text-lg leading-relaxed">Living here provides the perfect launchpad for my travels, allowing me to frequently hop over and explore incredible nearby cities and regions.</p>
