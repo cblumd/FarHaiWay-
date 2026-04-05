@@ -24,6 +24,10 @@ const cities = [
 ];
 ---
 <MainLayout title="China — Full Gallery | FarHaiWay" menuItems={menuItems} breadcrumbs={breadcrumbs}>
+  <!-- Triggers for Peer Logic -->
+  <input type="radio" name="lang-peer" id="lang-en" class="peer/en hidden" checked />
+  <input type="radio" name="lang-peer" id="lang-th" class="peer/th hidden" />
+  <input type="radio" name="lang-peer" id="lang-ch" class="peer/ch hidden" />
 
   <div slot="watermark" class="absolute top-10 left-10 opacity-15 pointer-events-none transform scale-150 origin-top-left z-0">
     <svg width="200" height="150" viewBox="0 0 300 200" fill="#F4E4BC">
@@ -35,10 +39,68 @@ const cities = [
     </svg>
   </div>
 
-  <div class="flex flex-col items-center gap-8 w-full max-w-3xl">
+  <div class="hidden peer-checked/en:block flex flex-col items-center gap-8 w-full max-w-3xl">
     <div>
-      <h1 class="text-5xl font-bold text-[#F4E4BC] drop-shadow-md">China — Full Gallery</h1>
-      <p class="text-xl text-[#E0F7FA] mt-2 font-medium tracking-wide text-center">中国 · ประเทศจีน</p>
+      <h1 class="text-5xl font-bold text-[#F4E4BC] drop-shadow-md">China</h1>
+      <p class="text-xl text-[#E0F7FA] mt-2 font-medium tracking-wide text-center">Check out my adventures in China</p>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 w-full mt-2">
+      {cities.map(city => (
+        <a
+          href={city.href}
+          class="group flex flex-col items-center gap-3 p-5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 hover:scale-105 transition-all duration-300"
+        >
+          <svg class="w-28 h-24" viewBox="0 0 96 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="16" width="92" height="60" rx="4" fill="#B8925A"/>
+            <path d="M2 16 L2 9 Q2 7 5 7 L32 7 Q35 7 37 9 L43 16 Z" fill="#C9A06E"/>
+            <rect x="2" y="24" width="92" height="52" rx="4" fill="#F4E4BC"/>
+            <line x1="14" y1="38" x2="82" y2="38" stroke="#C9A06E" stroke-width="1.5" stroke-opacity="0.6"/>
+            <line x1="14" y1="50" x2="82" y2="50" stroke="#C9A06E" stroke-width="1.5" stroke-opacity="0.6"/>
+            <line x1="14" y1="62" x2="82" y2="62" stroke="#C9A06E" stroke-width="1.5" stroke-opacity="0.6"/>
+          </svg>
+          <div class="text-center">
+            <p class="text-[#F4E4BC] font-bold text-lg group-hover:text-white transition-colors leading-tight">{city.name}</p>
+            <p class="text-[#E0F7FA] text-xs mt-1 opacity-70">{city.sub}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+
+  <div class="hidden peer-checked/th:block flex flex-col items-center gap-8 w-full max-w-3xl">
+    <div>
+      <h1 class="text-5xl font-bold text-[#F4E4BC] drop-shadow-md">ประเทศจีน</h1>
+      <p class="text-xl text-[#E0F7FA] mt-2 font-medium tracking-wide text-center">ดูการผจญภัยของฉันในประเทศจีน</p>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 w-full mt-2">
+      {cities.map(city => (
+        <a
+          href={city.href}
+          class="group flex flex-col items-center gap-3 p-5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 hover:scale-105 transition-all duration-300"
+        >
+          <svg class="w-28 h-24" viewBox="0 0 96 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="16" width="92" height="60" rx="4" fill="#B8925A"/>
+            <path d="M2 16 L2 9 Q2 7 5 7 L32 7 Q35 7 37 9 L43 16 Z" fill="#C9A06E"/>
+            <rect x="2" y="24" width="92" height="52" rx="4" fill="#F4E4BC"/>
+            <line x1="14" y1="38" x2="82" y2="38" stroke="#C9A06E" stroke-width="1.5" stroke-opacity="0.6"/>
+            <line x1="14" y1="50" x2="82" y2="50" stroke="#C9A06E" stroke-width="1.5" stroke-opacity="0.6"/>
+            <line x1="14" y1="62" x2="82" y2="62" stroke="#C9A06E" stroke-width="1.5" stroke-opacity="0.6"/>
+          </svg>
+          <div class="text-center">
+            <p class="text-[#F4E4BC] font-bold text-lg group-hover:text-white transition-colors leading-tight">{city.name}</p>
+            <p class="text-[#E0F7FA] text-xs mt-1 opacity-70">{city.sub}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+
+  <div class="hidden peer-checked/ch:block flex flex-col items-center gap-8 w-full max-w-3xl">
+    <div>
+      <h1 class="text-5xl font-bold text-[#F4E4BC] drop-shadow-md">中国</h1>
+      <p class="text-xl text-[#E0F7FA] mt-2 font-medium tracking-wide text-center">看看我在中国的冒险</p>
     </div>
 
     <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 w-full mt-2">
