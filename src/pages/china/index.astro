@@ -1,111 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>China Adventures | FarHaiWay</title>
-</head>
-<body class="font-sans">
+---
+import MainLayout from '../../layouts/MainLayout.astro';
 
-  <div class="min-h-screen bg-gradient-to-br from-[#006994] to-[#E0F7FA] p-8 overflow-hidden relative">
-    
-    <div class="absolute top-10 left-10 opacity-15 pointer-events-none transform scale-150 origin-top-left z-0">
-      <svg width="200" height="150" viewBox="0 0 300 200" fill="#F4E4BC">
-        <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(1.5) translate(10, 15)" />
-        <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(0.5) translate(280, 20) rotate(20)" />
-        <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(0.5) translate(340, 70) rotate(40)" />
-        <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(0.5) translate(340, 140) rotate(0)" />
-        <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(0.5) translate(280, 190) rotate(-20)" />
-      </svg>
-    </div>
+const menuItems = [
+  { label: 'Zhuhai',    href: '/china/zhuhai'    },
+  { label: 'Guangzhou', href: '/china/guangzhou' },
+  { label: 'Shenzhen',  href: '/china/shenzhen'  },
+  { label: 'Hong Kong', href: '/china/hongkong'  },
+  { label: 'Macau',     href: '/china/macau'     },
+  { separator: true },
+  { label: 'Full Gallery', href: '/china/gallery' },
+];
 
-    <div class="absolute -left-10 -bottom-10 opacity-40 pointer-events-none transform scale-110 z-0">
-      <svg width="300" height="400" viewBox="0 0 100 140" fill="none" stroke="#9DC183" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M45 140 Q30 80 45 30" /><path d="M55 140 Q40 80 45 30" /><path d="M42 120 L52 120" /><path d="M39 100 L49 100" /><path d="M38 80 L46 80" /><path d="M40 60 L45 60" /><path d="M42 45 L46 45" />
-        <path d="M45 30 Q15 10 0 35" /><path d="M45 30 Q80 15 95 30" /><path d="M45 30 Q10 40 5 70" /><path d="M45 30 Q85 45 85 75" /><path d="M45 30 Q25 65 30 90" /><path d="M45 30 Q65 65 60 90" /><path d="M45 30 Q45 -5 60 10" />
-      </svg>
-    </div>
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+];
+---
+<MainLayout title="China Adventures | FarHaiWay" menuItems={menuItems} breadcrumbs={breadcrumbs}>
 
-    <div class="absolute -right-10 -bottom-10 opacity-40 pointer-events-none transform scale-110 -scale-x-100 rotate-6 z-0">
-      <svg width="300" height="400" viewBox="0 0 100 140" fill="none" stroke="#9DC183" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M45 140 Q30 80 45 30" /><path d="M55 140 Q40 80 45 30" /><path d="M42 120 L52 120" /><path d="M39 100 L49 100" /><path d="M38 80 L46 80" /><path d="M40 60 L45 60" /><path d="M42 45 L46 45" />
-        <path d="M45 30 Q15 10 0 35" /><path d="M45 30 Q80 15 95 30" /><path d="M45 30 Q10 40 5 70" /><path d="M45 30 Q85 45 85 75" /><path d="M45 30 Q25 65 30 90" /><path d="M45 30 Q65 65 60 90" /><path d="M45 30 Q45 -5 60 10" />
-      </svg>
-    </div>
+  <!-- Watermark: 5-star constellation -->
+  <div slot="watermark" class="absolute top-10 left-10 opacity-15 pointer-events-none transform scale-150 origin-top-left z-0">
+    <svg width="200" height="150" viewBox="0 0 300 200" fill="#F4E4BC">
+      <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(1.5) translate(10,15)" />
+      <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(0.5) translate(280,20) rotate(20)" />
+      <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(0.5) translate(340,70) rotate(40)" />
+      <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(0.5) translate(340,140) rotate(0)" />
+      <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(0.5) translate(280,190) rotate(-20)" />
+    </svg>
+  </div>
 
-    <nav class="relative z-30 flex justify-between items-center text-[#F4E4BC]">
-      <label for="menu-toggle" class="text-3xl font-bold cursor-pointer hover:text-white select-none">☰</label>
-      
-      <div class="flex flex-col items-end gap-2 font-bold">
-        <a href="/" class="hover:underline text-lg">Home</a>
-        
-        <div class="flex gap-4 border border-[#F4E4BC]/30 p-1 px-3 rounded-full text-sm bg-[#006994]/20 backdrop-blur-sm">
-          <label for="lang-en" class="cursor-pointer hover:underline peer-checked/en:text-white select-none">EN</label>
-          <label for="lang-th" class="cursor-pointer hover:underline peer-checked/th:text-white select-none">TH</label>
-          <label for="lang-ch" class="cursor-pointer hover:underline peer-checked/ch:text-white select-none">CH</label>
-        </div>
-      </div>
-    </nav>
-
-    <input type="checkbox" id="menu-toggle" class="peer/menu hidden">
-    <div class="hidden peer-checked/menu:block absolute top-28 left-8 z-30 bg-[#F4E4BC] p-6 rounded-lg text-[#006994] shadow-xl w-48 border border-[#F4E4BC]/50">
-      <ul class="space-y-4 font-bold text-lg">
-        <li><a href="/china/zhuhai" class="hover:text-black block">Zhuhai</a></li>
-        <li><a href="/china/guangzhou" class="hover:text-black block">Guangzhou</a></li>
-        <li><a href="/china/shenzhen" class="hover:text-black block">Shenzhen</a></li>
-        <li><a href="/china/hongkong" class="hover:text-black block">Hong Kong</a></li>
-        <li><a href="/china/macau" class="hover:text-black block">Macau</a></li>
-        <hr class="border-[#006994] opacity-30 my-2">
-        <li><a href="/gallery" class="hover:text-black block">Full Gallery</a></li>
-      </ul>
-    </div>
-
-    <div class="relative z-10 flex flex-col items-center justify-center min-h-[70vh] text-center mt-4">
-      
-      <input type="radio" name="language" id="lang-en" class="peer/en hidden" checked>
-      <input type="radio" name="language" id="lang-th" class="peer/th hidden">
-      <input type="radio" name="language" id="lang-ch" class="peer/ch hidden">
-
-      <div class="hidden peer-checked/en:flex flex-col items-center">
-        <h1 class="text-7xl font-bold text-[#F4E4BC] drop-shadow-md">China</h1>
-        <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">My adventures in China</p>
-        <div class="max-w-2xl mt-12 bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/20 text-white text-left shadow-lg">
-          <p class="text-lg leading-relaxed mb-4">
-            I am currently based in the coastal city of Zhuhai, working as a high school teacher. I spend my days teaching math, basic science, and economics to 10th and 11th-grade ESL students. 
-          </p>
-          <p class="text-lg leading-relaxed">
-            Living here provides the perfect launchpad for my travels, allowing me to frequently hop over and explore incredible nearby cities and regions.
-          </p>
-        </div>
-      </div>
-
-      <div class="hidden peer-checked/th:flex flex-col items-center">
-        <h1 class="text-7xl font-bold text-[#F4E4BC] drop-shadow-md">ประเทศจีน</h1>
-        <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">การผจญภัยของฉันในประเทศจีน</p>
-        <div class="max-w-2xl mt-12 bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/20 text-white text-left shadow-lg">
-          <p class="text-lg leading-relaxed mb-4">
-            ปัจจุบันฉันพำนักอยู่ในเมืองชายฝั่งทะเลจูไห่ ทำงานเป็นครูโรงเรียนมัธยมปลาย ฉันสอนวิชาคณิตศาสตร์ วิทยาศาสตร์พื้นฐาน และเศรษฐศาสตร์ให้กับนักเรียน ESL 
-          </p>
-          <p class="text-lg leading-relaxed">
-            การอาศัยอยู่ที่นี่เป็นจุดเริ่มต้นที่สมบูรณ์แบบสำหรับการเดินทาง ช่วยให้ฉันสามารถไปสำรวจเมืองและภูมิภาคใกล้เคียงที่น่าทึ่งได้อย่างบ่อยครั้ง
-          </p>
-        </div>
-      </div>
-
-      <div class="hidden peer-checked/ch:flex flex-col items-center">
-        <h1 class="text-7xl font-bold text-[#F4E4BC] drop-shadow-md">中国</h1>
-        <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">我在中国的冒险</p>
-        <div class="max-w-2xl mt-12 bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/20 text-white text-left shadow-lg">
-          <p class="text-lg leading-relaxed mb-4">
-            我目前居住在海滨城市珠海，担任高中教师。我向 ESL 学生教授数学、基础科学和经济学。
-          </p>
-          <p class="text-lg leading-relaxed">
-            住在这里为我的旅行提供了完美的出发点，让我能够频繁地前往并探索周边令人惊叹的城市和地区。
-          </p>
-        </div>
-      </div>
-
+  <!-- EN -->
+  <div class="hidden peer-checked/en:flex flex-col items-center">
+    <h1 class="text-7xl font-bold text-[#F4E4BC] drop-shadow-md">China</h1>
+    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">My adventures in China</p>
+    <div class="max-w-2xl mt-12 bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/20 text-white text-left shadow-lg">
+      <p class="text-lg leading-relaxed mb-4">I am currently based in the coastal city of Zhuhai, working as a high school teacher. I spend my days teaching math, basic science, and economics to 10th and 11th-grade ESL students.</p>
+      <p class="text-lg leading-relaxed">Living here provides the perfect launchpad for my travels, allowing me to frequently hop over and explore incredible nearby cities and regions.</p>
     </div>
   </div>
-</body>
-</html>
+
+  <!-- TH -->
+  <div class="hidden peer-checked/th:flex flex-col items-center">
+    <h1 class="text-7xl font-bold text-[#F4E4BC] drop-shadow-md">ประเทศจีน</h1>
+    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">การผจญภัยของฉันในประเทศจีน</p>
+    <div class="max-w-2xl mt-12 bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/20 text-white text-left shadow-lg">
+      <p class="text-lg leading-relaxed mb-4">ปัจจุบันฉันพำนักอยู่ในเมืองชายฝั่งทะเลจูไห่ ทำงานเป็นครูโรงเรียนมัธยมปลาย ฉันสอนวิชาคณิตศาสตร์ วิทยาศาสตร์พื้นฐาน และเศรษฐศาสตร์ให้กับนักเรียน ESL</p>
+      <p class="text-lg leading-relaxed">การอาศัยอยู่ที่นี่เป็นจุดเริ่มต้นที่สมบูรณ์แบบสำหรับการเดินทาง ช่วยให้ฉันสามารถไปสำรวจเมืองและภูมิภาคใกล้เคียงที่น่าทึ่งได้อย่างบ่อยครั้ง</p>
+    </div>
+  </div>
+
+  <!-- CH -->
+  <div class="hidden peer-checked/ch:flex flex-col items-center">
+    <h1 class="text-7xl font-bold text-[#F4E4BC] drop-shadow-md">中国</h1>
+    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">我在中国的冒险</p>
+    <div class="max-w-2xl mt-12 bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/20 text-white text-left shadow-lg">
+      <p class="text-lg leading-relaxed mb-4">我目前居住在海滨城市珠海，担任高中教师。我向 ESL 学生教授数学、基础科学和经济学。</p>
+      <p class="text-lg leading-relaxed">住在这里为我的旅行提供了完美的出发点，让我能够频繁地前往并探索周边令人惊叹的城市和地区。</p>
+    </div>
+  </div>
+
+</MainLayout>

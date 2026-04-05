@@ -1,0 +1,32 @@
+---
+interface Props {
+  city: string;
+  href?: string;
+  subtitle?: string;
+  size?: 'sm' | 'lg';
+}
+const { city, href = "#", subtitle, size = 'lg' } = Astro.props;
+const folderW = size === 'lg' ? 'w-44 h-36' : 'w-28 h-24';
+const titleSize = size === 'lg' ? 'text-xl' : 'text-base';
+---
+<a
+  href={href}
+  class="group flex flex-col items-center gap-3 p-5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 hover:scale-105 transition-all duration-300 cursor-pointer w-full max-w-[180px]"
+>
+  <svg class={folderW} viewBox="0 0 96 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Folder shadow/back -->
+    <rect x="2" y="16" width="92" height="60" rx="4" fill="#B8925A"/>
+    <!-- Tab -->
+    <path d="M2 16 L2 9 Q2 7 5 7 L32 7 Q35 7 37 9 L43 16 Z" fill="#C9A06E"/>
+    <!-- Front face -->
+    <rect x="2" y="24" width="92" height="52" rx="4" fill="#F4E4BC"/>
+    <!-- Ruled lines -->
+    <line x1="14" y1="38" x2="82" y2="38" stroke="#C9A06E" stroke-width="1.5" stroke-opacity="0.5"/>
+    <line x1="14" y1="50" x2="82" y2="50" stroke="#C9A06E" stroke-width="1.5" stroke-opacity="0.5"/>
+    <line x1="14" y1="62" x2="82" y2="62" stroke="#C9A06E" stroke-width="1.5" stroke-opacity="0.5"/>
+  </svg>
+  <div class="text-center">
+    <p class={`text-[#F4E4BC] font-bold ${titleSize} group-hover:text-white transition-colors leading-tight`}>{city}</p>
+    {subtitle && <p class="text-[#E0F7FA] text-xs mt-1 opacity-70">{subtitle}</p>}
+  </div>
+</a>
