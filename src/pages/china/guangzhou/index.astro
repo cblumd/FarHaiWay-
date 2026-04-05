@@ -17,6 +17,11 @@ const breadcrumbs = [
 ---
 <MainLayout title="Guangzhou | FarHaiWay" menuItems={menuItems} breadcrumbs={breadcrumbs}>
 
+  <!-- Triggers for Peer Logic -->
+  <input type="radio" name="lang-peer" id="lang-en" class="peer/en hidden" checked />
+  <input type="radio" name="lang-peer" id="lang-th" class="peer/th hidden" />
+  <input type="radio" name="lang-peer" id="lang-ch" class="peer/ch hidden" />
+
   <!-- Watermark: 5-star constellation -->
   <div slot="watermark" class="absolute top-10 left-10 opacity-20 blur-[2px] pointer-events-none transform scale-150 origin-top-left z-0">
     <svg width="200" height="150" viewBox="0 0 300 200" fill="#F4E4BC">
@@ -31,7 +36,7 @@ const breadcrumbs = [
   <!-- EN -->
   <div class="hidden peer-checked/en:flex flex-col items-center">
     <h1 class="text-7xl font-bold text-[#F4E4BC] drop-shadow-md">Guangzhou</h1>
-    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">The Heart of Guangdong</p>
+    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">Exploring the historic landmarks and vibrant culture of the Flower City.</p>
     <div class="max-w-2xl mt-12 bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/20 text-white text-left shadow-lg">
       <p class="text-lg leading-relaxed mb-4">Guangzhou is a massive tier 1 city bordering Zhuhai. It's huge, it's green, and it's incredibly busy.</p>
       <p class="text-lg leading-relaxed">I find it wonderful and I absolutely love exploring it. There is a specific energy here that you can't find anywhere else.</p>
@@ -44,7 +49,7 @@ const breadcrumbs = [
   <!-- TH -->
   <div class="hidden peer-checked/th:flex flex-col items-center">
     <h1 class="text-7xl font-bold text-[#F4E4BC] drop-shadow-md">กวางโจว</h1>
-    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">หัวใจสำคัญของกวางตุ้ง</p>
+    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">สำรวจสถานที่สำคัญทางประวัติศาสตร์และวัฒนธรรมที่มีชีวิตชีวาของเมืองแห่งดอกไม้</p>
     <div class="max-w-2xl mt-12 bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/20 text-white text-left shadow-lg">
       <p class="text-lg leading-relaxed mb-4">กวางโจวเป็นเมืองระดับ Tier 1 ขนาดใหญ่ที่มีอาณาเขตติดกับจูไห่ เมืองนี้ใหญ่มาก พื้นที่สีเขียวเยอะ และวุ่นวายอย่างไม่น่าเชื่อ</p>
       <p class="text-lg leading-relaxed">ฉันว่ามันวิเศษมากและฉันก็ชอบสำรวจที่นี่สุดๆ พลังของเมืองนี้มีเอกลักษณ์เฉพาะตัวที่ไม่เหมือนใครจริงๆ</p>
@@ -57,7 +62,7 @@ const breadcrumbs = [
   <!-- CH -->
   <div class="hidden peer-checked/ch:flex flex-col items-center">
     <h1 class="text-7xl font-bold text-[#F4E4BC] drop-shadow-md">广州</h1>
-    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">广东的心脏</p>
+    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">探索花城悠久的历史遗迹与活力四射的文化。</p>
     <div class="max-w-2xl mt-12 bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/20 text-white text-left shadow-lg">
       <p class="text-lg leading-relaxed mb-4">广州是一个与珠海接壤的巨大一线城市。它非常大，绿化很好，而且非常繁忙。</p>
       <p class="text-lg leading-relaxed">我觉得这里非常奇妙，我很喜欢在这里探索。这座城市有着一种在其他地方找不到的独特活力。</p>

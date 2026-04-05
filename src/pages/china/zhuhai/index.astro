@@ -17,6 +17,11 @@ const breadcrumbs = [
 ---
 <MainLayout title="Zhuhai | FarHaiWay" menuItems={menuItems} breadcrumbs={breadcrumbs}>
 
+  <!-- Triggers for Peer Logic -->
+  <input type="radio" name="lang-peer" id="lang-en" class="peer/en hidden" checked />
+  <input type="radio" name="lang-peer" id="lang-th" class="peer/th hidden" />
+  <input type="radio" name="lang-peer" id="lang-ch" class="peer/ch hidden" />
+
   <!-- Watermark: 5-star constellation -->
   <div slot="watermark" class="absolute top-10 left-10 opacity-15 pointer-events-none transform scale-150 origin-top-left z-0">
     <svg width="200" height="150" viewBox="0 0 300 200" fill="#F4E4BC">
@@ -31,7 +36,7 @@ const breadcrumbs = [
   <!-- EN -->
   <div class="hidden peer-checked/en:flex flex-col items-center">
     <h1 class="text-7xl font-bold text-[#F4E4BC] drop-shadow-md">Zhuhai</h1>
-    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">Life in the City of Islands</p>
+    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">Teaching and living in the City of Islands</p>
     <div class="max-w-2xl mt-12 bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/20 text-white text-left shadow-lg">
       <p class="text-lg leading-relaxed mb-4">I have been living in Zhuhai since 2024. I love the hot seasons here; they match the coastal energy perfectly.</p>
       <p class="text-lg leading-relaxed">I'll admit I hate the cold season of Zhuhai, even though it's not actually that cold. Overall, it's a very chill city, but it has fun, bustling neighborhoods for when I want to get out and have a drink.</p>
@@ -44,7 +49,7 @@ const breadcrumbs = [
   <!-- TH -->
   <div class="hidden peer-checked/th:flex flex-col items-center">
     <h1 class="text-7xl font-bold text-[#F4E4BC] drop-shadow-md">จูไห่</h1>
-    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">ชีวิตในเมืองแห่งหมู่เกาะ</p>
+    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">สอนหนังสือและใช้ชีวิตในเมืองแห่งเกาะต่างๆ</p>
     <div class="max-w-2xl mt-12 bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/20 text-white text-left shadow-lg">
       <p class="text-lg leading-relaxed mb-4">ฉันอาศัยอยู่ในจูไห่มาตั้งแต่ปี 2024 ฉันชอบฤดูร้อนที่นี่มาก มันเข้ากับบรรยากาศเมืองชายฝั่งได้เป็นอย่างดี</p>
       <p class="text-lg leading-relaxed">ฉันสารภาพเลยว่าเกลียดฤดูหนาวของจูไห่ ถึงแม้ว่าจริงๆ แล้วมันจะไม่ได้หนาวขนาดนั้นก็ตาม โดยรวมแล้วที่นี่เป็นเมืองที่ชิลล์มาก แต่ก็มีย่านที่คึกคักและสนุกสนานสำหรับเวลาที่ฉันอยากออกไปดื่มสังสรรค์</p>
@@ -57,7 +62,7 @@ const breadcrumbs = [
   <!-- CH -->
   <div class="hidden peer-checked/ch:flex flex-col items-center">
     <h1 class="text-7xl font-bold text-[#F4E4BC] drop-shadow-md">珠海</h1>
-    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">百岛之市的生活</p>
+    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">在百岛之市教学与生活</p>
     <div class="max-w-2xl mt-12 bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/20 text-white text-left shadow-lg">
       <p class="text-lg leading-relaxed mb-4">我从2024年开始住在珠海。我非常喜欢这里的炎热季节，非常契合这座海滨城市的活力。</p>
       <p class="text-lg leading-relaxed">不得不承认，我很讨厌珠海的寒冷季节，尽管其实并没有那么冷。总的来说，这是一座非常悠闲的城市，但当我想要出去喝一杯时，这里也有非常繁华热闹的街区。</p>
