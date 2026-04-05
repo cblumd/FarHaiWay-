@@ -1,0 +1,1 @@
+console.log("FarHaiWay website loaded.");
