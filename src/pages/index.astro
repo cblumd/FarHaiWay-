@@ -10,6 +10,10 @@ const menuItems = [
 ];
 ---
 <MainLayout title="FarHaiWay" menuItems={menuItems}>
+  <!-- Triggers for Peer Logic -->
+  <input type="radio" name="lang-peer" id="lang-en" class="peer/en hidden" checked />
+  <input type="radio" name="lang-peer" id="lang-th" class="peer/th hidden" />
+  <input type="radio" name="lang-peer" id="lang-ch" class="peer/ch hidden" />
 
   <!-- Watermark: all three country flags distributed horizontally -->
   <div slot="watermark" class="absolute inset-0 z-0 pointer-events-none flex items-start justify-between px-16 pt-10">
