@@ -17,6 +17,11 @@ const breadcrumbs = [
 ---
 <MainLayout title="Hong Kong | FarHaiWay" menuItems={menuItems} breadcrumbs={breadcrumbs}>
 
+  <!-- Triggers for Peer Logic -->
+  <input type="radio" name="lang-peer" id="lang-en" class="peer/en hidden" checked />
+  <input type="radio" name="lang-peer" id="lang-th" class="peer/th hidden" />
+  <input type="radio" name="lang-peer" id="lang-ch" class="peer/ch hidden" />
+
   <div slot="watermark" class="absolute top-10 left-10 opacity-15 pointer-events-none transform scale-150 origin-top-left z-0">
     <svg width="200" height="150" viewBox="0 0 300 200" fill="#F4E4BC">
       <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(1.5) translate(10,15)" />
@@ -30,7 +35,7 @@ const breadcrumbs = [
   <!-- EN -->
   <div class="hidden peer-checked/en:flex flex-col items-center">
     <h1 class="text-7xl font-bold text-[#F4E4BC] drop-shadow-md">Hong Kong</h1>
-    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">Where East Meets West</p>
+    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">A fusion of soaring skyscrapers and historic island culture.</p>
     <div class="max-w-2xl mt-12 bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/20 text-white text-left shadow-lg">
       <p class="text-lg leading-relaxed mb-4">[Enter text here]</p>
       <p class="text-lg leading-relaxed">[Enter text here]</p>
@@ -43,7 +48,7 @@ const breadcrumbs = [
   <!-- TH -->
   <div class="hidden peer-checked/th:flex flex-col items-center">
     <h1 class="text-7xl font-bold text-[#F4E4BC] drop-shadow-md">ฮ่องกง</h1>
-    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">จุดบรรจบของตะวันออกและตะวันตก</p>
+    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">การผสมผสานระหว่างตึกระฟ้าที่สูงตระหง่านและวัฒนธรรมเกาะที่มีประวัติศาสตร์</p>
     <div class="max-w-2xl mt-12 bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/20 text-white text-left shadow-lg">
       <p class="text-lg leading-relaxed mb-4">[กรอกข้อความที่นี่]</p>
       <p class="text-lg leading-relaxed">[กรอกข้อความที่นี่]</p>
@@ -56,7 +61,7 @@ const breadcrumbs = [
   <!-- CH -->
   <div class="hidden peer-checked/ch:flex flex-col items-center">
     <h1 class="text-7xl font-bold text-[#F4E4BC] drop-shadow-md">香港</h1>
-    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">东西方交汇之地</p>
+    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">摩天大楼与历史岛屿文化的完美融合。</p>
     <div class="max-w-2xl mt-12 bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/20 text-white text-left shadow-lg">
       <p class="text-lg leading-relaxed mb-4">[在此输入文字]</p>
       <p class="text-lg leading-relaxed">[在此输入文字]</p>
