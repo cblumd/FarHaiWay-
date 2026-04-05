@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thailand Adventures | FarHaiWay</title>
+</head>
+<body class="font-sans">
+
+  <div class="min-h-screen bg-gradient-to-br from-[#006994] to-[#E0F7FA] p-8 overflow-hidden relative">
+    
+    <div class="absolute inset-0 z-0 opacity-20 grayscale blur-[80px] pointer-events-none mix-blend-multiply transform scale-110">
+      <svg width="100%" height="100%" preserveAspectRatio="none">
+        <rect width="100%" height="16.66%" fill="#A51931" />
+        <rect y="16.66%" width="100%" height="16.66%" fill="#F4F5F8" />
+        <rect y="33.33%" width="100%" height="33.33%" fill="#2D2A4A" />
+        <rect y="66.66%" width="100%" height="16.66%" fill="#F4F5F8" />
+        <rect y="83.33%" width="100%" height="16.66%" fill="#A51931" />
+      </svg>
+    </div>
+
+    <div class="absolute -left-10 -bottom-10 opacity-40 pointer-events-none transform scale-110 z-1">
+      <svg width="300" height="400" viewBox="0 0 100 140" fill="none" stroke="#9DC183" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M45 140 Q30 80 45 30" />
+        <path d="M55 140 Q40 80 45 30" />
+        <path d="M42 120 L52 120" />
+        <path d="M39 100 L49 100" />
+        <path d="M38 80 L46 80" />
+        <path d="M40 60 L45 60" />
+        <path d="M42 45 L46 45" />
+        <path d="M45 30 Q15 10 0 35" />
+        <path d="M45 30 Q80 15 95 30" />
+        <path d="M45 30 Q10 40 5 70" />
+        <path d="M45 30 Q85 45 85 75" />
+        <path d="M45 30 Q25 65 30 90" />
+        <path d="M45 30 Q65 65 60 90" />
+        <path d="M45 30 Q45 -5 60 10" />
+      </svg>
+    </div>
+
+    <div class="absolute -right-10 -bottom-10 opacity-40 pointer-events-none transform scale-110 -scale-x-100 rotate-6 z-1">
+      <svg width="300" height="400" viewBox="0 0 100 140" fill="none" stroke="#9DC183" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M45 140 Q30 80 45 30" />
+        <path d="M55 140 Q40 80 45 30" />
+        <path d="M42 120 L52 120" />
+        <path d="M39 100 L49 100" />
+        <path d="M38 80 L46 80" />
+        <path d="M40 60 L45 60" />
+        <path d="M42 45 L46 45" />
+        <path d="M45 30 Q15 10 0 35" />
+        <path d="M45 30 Q80 15 95 30" />
+        <path d="M45 30 Q10 40 5 70" />
+        <path d="M45 30 Q85 45 85 75" />
+        <path d="M45 30 Q25 65 30 90" />
+        <path d="M45 30 Q65 65 60 90" />
+        <path d="M45 30 Q45 -5 60 10" />
+      </svg>
+    </div>
+
+    <nav class="relative z-20 flex justify-between items-center text-[#F4E4BC]">
+      <label for="menu-toggle" class="text-3xl font-bold cursor-pointer hover:text-white select-none">☰</label>
+      
+      <div class="flex flex-col items-end gap-2 font-bold">
+        <a href="/" class="hover:underline text-lg">Home</a>
+        
+        <div class="flex gap-4 border border-[#F4E4BC]/30 p-1 px-3 rounded-full text-sm bg-[#006994]/20 backdrop-blur-sm">
+          <label for="lang-en" class="cursor-pointer hover:underline peer-checked/en:text-white select-none">EN</label>
+          <label for="lang-th" class="cursor-pointer hover:underline peer-checked/th:text-white select-none">TH</label>
+          <label for="lang-ch" class="cursor-pointer hover:underline peer-checked/ch:text-white select-none">CH</label>
+        </div>
+      </div>
+    </nav>
+
+    <input type="checkbox" id="menu-toggle" class="peer/menu hidden">
+
+    <div class="hidden peer-checked/menu:block absolute top-28 left-8 z-30 bg-[#F4E4BC] p-6 rounded-lg text-[#006994] shadow-xl w-48 border border-[#F4E4BC]/50">
+      <ul class="space-y-4 font-bold text-lg">
+        <li><a href="/bangkok" class="hover:text-black block">Bangkok</a></li>
+        <li><a href="/nonthaburi" class="hover:text-black block">Nonthaburi</a></li>
+        <li><a href="/kohsamet" class="hover:text-black block">Koh Samet</a></li>
+        <hr class="border-[#006994] opacity-30 my-2">
+        <li><a href="/gallery" class="hover:text-black block">Full Gallery</a></li>
+      </ul>
+    </div>
+
+    <div class="relative z-10 flex flex-col items-center justify-center min-h-[70vh] text-center mt-4">
+      
+      <input type="radio" name="language" id="lang-en" class="peer/en hidden" checked>
+      <input type="radio" name="language" id="lang-th" class="peer/th hidden">
+      <input type="radio" name="language" id="lang-ch" class="peer/ch hidden">
+
+      <div class="hidden peer-checked/en:flex flex-col items-center">
+        <h1 class="text-7xl font-bold text-[#F4E4BC] drop-shadow-md">Thailand</h1>
+        <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">My adventures in Thailand</p>
+        
+        <div class="max-w-2xl mt-12 bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/20 text-white text-left shadow-lg">
+          <p class="text-lg leading-relaxed mb-4">
+            I began my Asian adventures in Thailand back in 2016. I originally lived in the Ladphrao area of Bangkok before eventually moving to Nonthaburi. I still maintain an apartment there, traveling back once a month from my current base in Zhuhai.
+          </p>
+          <p class="text-lg leading-relaxed">
+            Over the years, I've had the incredible privilege of learning to speak, read, and write Thai, deeply enriching my travels and connections.
+          </p>
+        </div>
+      </div>
+
+      <div class="hidden peer-checked/th:flex flex-col items-center">
+        <h1 class="text-7xl font-bold text-[#F4E4BC] drop-shadow-md">ประเทศไทย</h1>
+        <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">การผจญภัยของฉันในประเทศไทย</p>
+        
+        <div class="max-w-2xl mt-12 bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/20 text-white text-left shadow-lg">
+          <p class="text-lg leading-relaxed mb-4">
+            ฉันเริ่มต้นการผจญภัยในเอเชียในประเทศไทยเมื่อปี 2016 เดิมทีฉันอาศัยอยู่ในย่านลาดพร้าวของกรุงเทพฯ ก่อนที่จะย้ายไปที่นนทบุรี ซึ่งฉันยังคงมีอพาร์ทเมนท์ที่ฉันเดินทางกลับไปเดือนละครั้งจากจูไห่
+          </p>
+          <p class="text-lg leading-relaxed">
+            ตลอดหลายปีที่ผ่านมา ฉันได้รับสิทธิพิเศษอย่างเหลือเชื่อในการเรียนรู้การพูด อ่าน และเขียนภาษาไทย ซึ่งช่วยเติมเต็มการเดินทางและความสัมพันธ์ของฉันได้อย่างลึกซึ้ง
+          </p>
+        </div>
+      </div>
+
+      <div class="hidden peer-checked/ch:flex flex-col items-center">
+        <h1 class="text-7xl font-bold text-[#F4E4BC] drop-shadow-md">泰国</h1>
+        <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">我在泰国的冒险</p>
+        
+        <div class="max-w-2xl mt-12 bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/20 text-white text-left shadow-lg">
+          <p class="text-lg leading-relaxed mb-4">
+            我的亚洲冒险之旅于2016年在泰国开始。我最初住在曼谷的Ladphrao地区，后来搬到了暖武里府（Nonthaburi）。我仍然在那里保留着一套公寓，每个月都会从珠海回去一次。
+          </p>
+          <p class="text-lg leading-relaxed">
+            这些年来，我非常荣幸地学会了听、说、读、写泰语，极大地丰富了我的旅行和人际交往。
+          </p>
+        </div>
+      </div>
+
+    </div>
+    
+  </div>
+
+</body>
+</html>
