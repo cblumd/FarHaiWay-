@@ -1,4 +1,10 @@
 {
   "usa_header": "สหรัฐอเมริกา",
-  "usa_adventures": "การผจญภัยของฉันในสหรัฐอเมริกา"
+  "usa_adventures": "การผจญภัยของฉันในสหรัฐอเมริกา",
+  "broomfield_header": "บรูมฟิลด์",
+  "broomfield_adventures": "การผจญภัยของฉันในบรูมฟิลด์",
+  "boulder_header": "โบลเดอร์",
+  "boulder_adventures": "การผจญภัยของฉันในโบลเดอร์",
+  "denver_header": "เดนเวอร์",
+  "denver_adventures": "การผจญภัยของฉันในเดนเวอร์"
 }

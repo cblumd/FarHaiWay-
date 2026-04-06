@@ -1,4 +1,10 @@
 {
   "usa_header": "美国",
-  "usa_adventures": "我在美国的冒险"
+  "usa_adventures": "我在美国的冒险",
+  "broomfield_header": "布鲁姆菲尔德",
+  "broomfield_adventures": "我在布鲁姆菲尔德的冒险",
+  "boulder_header": "博尔德",
+  "boulder_adventures": "我在博尔德的冒险",
+  "denver_header": "丹佛",
+  "denver_adventures": "我在丹佛的冒险"
 }
