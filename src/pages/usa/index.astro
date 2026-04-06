@@ -1,5 +1,8 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
+import en from '../../i18n/en.json';
+import th from '../../i18n/th.json';
+import ch from '../../i18n/ch.json';
 
 const menuItems = [
   { label: 'Broomfield', href: '/usa/broomfield' },
@@ -14,6 +17,11 @@ const breadcrumbs = [
 ];
 ---
 <MainLayout title="USA Adventures | FarHaiWay" menuItems={menuItems} breadcrumbs={breadcrumbs}>
+
+  <!-- Triggers for Peer Logic -->
+  <input type="radio" name="lang-peer" id="lang-en" class="peer/en hidden" checked />
+  <input type="radio" name="lang-peer" id="lang-th" class="peer/th hidden" />
+  <input type="radio" name="lang-peer" id="lang-ch" class="peer/ch hidden" />
 
   <!-- Watermark: US flag stripes + canton -->
   <div slot="watermark" class="absolute inset-0 z-0 opacity-15 blur-2xl pointer-events-none mix-blend-multiply transform scale-110">
@@ -31,8 +39,8 @@ const breadcrumbs = [
 
   <!-- EN -->
   <div class="hidden peer-checked/en:flex flex-col items-center">
-    <h1 class="text-7xl font-bold text-[#F4E4BC] drop-shadow-md">USA</h1>
-    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">My adventures in the USA</p>
+    <h1 class="text-7xl font-bold text-[#F4E4BC] drop-shadow-md">{en.usa_header}</h1>
+    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">{en.usa_adventures}</p>
     <div class="max-w-2xl mt-12 bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/20 text-white text-left shadow-lg">
       <p class="text-lg leading-relaxed mb-4">I am an American citizen born in Florida, but I was raised for most of my life in Colorado.</p>
       <p class="text-lg leading-relaxed">When I am stateside, I am primarily located in the Broomfield area, though I frequently travel to Denver and Boulder. It's the perfect home base between the city life and the beautiful Rocky Mountains.</p>
@@ -41,8 +49,8 @@ const breadcrumbs = [
 
   <!-- TH -->
   <div class="hidden peer-checked/th:flex flex-col items-center">
-    <h1 class="text-7xl font-bold text-[#F4E4BC] drop-shadow-md">สหรัฐอเมริกา</h1>
-    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">การผจญภัยของฉันในสหรัฐอเมริกา</p>
+    <h1 class="text-7xl font-bold text-[#F4E4BC] drop-shadow-md">{th.usa_header}</h1>
+    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">{th.usa_adventures}</p>
     <div class="max-w-2xl mt-12 bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/20 text-white text-left shadow-lg">
       <p class="text-lg leading-relaxed mb-4">ฉันเป็นพลเมืองอเมริกัน เกิดที่รัฐฟลอริดา แต่เติบโตและใช้ชีวิตส่วนใหญ่ในรัฐโคโลราโด</p>
       <p class="text-lg leading-relaxed">เมื่อฉันอยู่ที่อเมริกา ฉันมักจะพักอาศัยอยู่ในย่านบรุมฟิลด์ (Broomfield) เป็นหลัก แต่ก็เดินทางไปเดนเวอร์ (Denver) และโบลเดอร์ (Boulder) บ่อยครั้ง</p>
@@ -51,8 +59,8 @@ const breadcrumbs = [
 
   <!-- CH -->
   <div class="hidden peer-checked/ch:flex flex-col items-center">
-    <h1 class="text-7xl font-bold text-[#F4E4BC] drop-shadow-md">美国</h1>
-    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">我在美国的冒险</p>
+    <h1 class="text-7xl font-bold text-[#F4E4BC] drop-shadow-md">{ch.usa_header}</h1>
+    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">{ch.usa_adventures}</p>
     <div class="max-w-2xl mt-12 bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/20 text-white text-left shadow-lg">
       <p class="text-lg leading-relaxed mb-4">我是一名美国公民，出生在佛罗里达州，但我的大部分生活都是在科罗拉多州度过的。</p>
       <p class="text-lg leading-relaxed">当我在美国时，我主要在布鲁姆菲尔德（Broomfield）地区活动，但也经常前往丹佛（Denver）和博尔德（Boulder）。这里是连接城市生活和美丽的落基山脉的完美大本营。</p>
