@@ -26,7 +26,13 @@ const breadcrumbs = [
     </svg>
   </div>
 
-  <div class="flex flex-col items-center gap-6">
+  <!-- Triggers for Peer Logic -->
+  <input type="radio" name="lang-peer" id="lang-en" class="peer/en hidden" checked />
+  <input type="radio" name="lang-peer" id="lang-th" class="peer/th hidden" />
+  <input type="radio" name="lang-peer" id="lang-ch" class="peer/ch hidden" />
+
+  <!-- EN -->
+  <div class="hidden peer-checked/en:flex flex-col items-center gap-6">
     <a href="#" class="group hover:scale-105 transition-transform duration-300">
       <svg width="280" height="220" viewBox="0 0 96 78" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="2" y="16" width="92" height="60" rx="4" fill="#B8925A"/>
@@ -38,10 +44,47 @@ const breadcrumbs = [
       </svg>
     </a>
     <h1 class="text-5xl font-bold text-[#F4E4BC] drop-shadow-md">Gallery for Zhuhai</h1>
-    <p class="text-xl text-[#E0F7FA] font-medium tracking-wide">珠海 · จูไห่</p>
     <div class="mt-4 bg-white/10 px-8 py-4 rounded-xl backdrop-blur-sm border border-white/20 text-[#E0F7FA] text-center max-w-md">
-      <p class="text-base">Google Drive link coming soon.</p>
-      <p class="text-sm opacity-60 mt-1">Media will open in a view-only Drive folder.</p>
+      <a href="https://drive.google.com/drive/folders/1-mgf9mphJPv186L-8QW_TAHvbISO7gMS?usp=drive_link" target="_blank" rel="noopener noreferrer" class="inline-block bg-white/10 hover:bg-white/20 px-5 py-2 rounded-md font-bold border border-white/20">Open Google Drive folder</a>
+      <p class="text-sm opacity-60 mt-2">Media will open in a view-only Drive folder.</p>
+    </div>
+  </div>
+
+  <!-- TH -->
+  <div class="hidden peer-checked/th:flex flex-col items-center gap-6">
+    <a href="#" class="group hover:scale-105 transition-transform duration-300">
+      <svg width="280" height="220" viewBox="0 0 96 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="16" width="92" height="60" rx="4" fill="#B8925A"/>
+        <path d="M2 16 L2 9 Q2 7 5 7 L32 7 Q35 7 37 9 L43 16 Z" fill="#C9A06E"/>
+        <rect x="2" y="24" width="92" height="52" rx="4" fill="#F4E4BC"/>
+        <line x1="14" y1="38" x2="82" y2="38" stroke="#C9A06E" stroke-width="1.5" stroke-opacity="0.6"/>
+        <line x1="14" y1="50" x2="82" y2="50" stroke="#C9A06E" stroke-width="1.5" stroke-opacity="0.6"/>
+        <line x1="14" y1="62" x2="82" y2="62" stroke="#C9A06E" stroke-width="1.5" stroke-opacity="0.6"/>
+      </svg>
+    </a>
+    <h1 class="text-5xl font-bold text-[#F4E4BC] drop-shadow-md">แกลเลอรี่สำหรับจูไห่</h1>
+    <div class="mt-4 bg-white/10 px-8 py-4 rounded-xl backdrop-blur-sm border border-white/20 text-[#E0F7FA] text-center max-w-md">
+      <a href="https://drive.google.com/drive/folders/1-mgf9mphJPv186L-8QW_TAHvbISO7gMS?usp=drive_link" target="_blank" rel="noopener noreferrer" class="inline-block bg-white/10 hover:bg-white/20 px-5 py-2 rounded-md font-bold border border-white/20">เปิดโฟลเดอร์ Google Drive</a>
+      <p class="text-sm opacity-60 mt-2">สื่อจะเปิดในโฟลเดอร์ Drive แบบดูอย่างเดียว</p>
+    </div>
+  </div>
+
+  <!-- CH -->
+  <div class="hidden peer-checked/ch:flex flex-col items-center gap-6">
+    <a href="#" class="group hover:scale-105 transition-transform duration-300">
+      <svg width="280" height="220" viewBox="0 0 96 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="16" width="92" height="60" rx="4" fill="#B8925A"/>
+        <path d="M2 16 L2 9 Q2 7 5 7 L32 7 Q35 7 37 9 L43 16 Z" fill="#C9A06E"/>
+        <rect x="2" y="24" width="92" height="52" rx="4" fill="#F4E4BC"/>
+        <line x1="14" y1="38" x2="82" y2="38" stroke="#C9A06E" stroke-width="1.5" stroke-opacity="0.6"/>
+        <line x1="14" y1="50" x2="82" y2="50" stroke="#C9A06E" stroke-width="1.5" stroke-opacity="0.6"/>
+        <line x1="14" y1="62" x2="82" y2="62" stroke="#C9A06E" stroke-width="1.5" stroke-opacity="0.6"/>
+      </svg>
+    </a>
+    <h1 class="text-5xl font-bold text-[#F4E4BC] drop-shadow-md">珠海图库</h1>
+    <div class="mt-4 bg-white/10 px-8 py-4 rounded-xl backdrop-blur-sm border border-white/20 text-[#E0F7FA] text-center max-w-md">
+      <a href="https://drive.google.com/drive/folders/1-mgf9mphJPv186L-8QW_TAHvbISO7gMS?usp=drive_link" target="_blank" rel="noopener noreferrer" class="inline-block bg-white/10 hover:bg-white/20 px-5 py-2 rounded-md font-bold border border-white/20">打开 Google Drive 文件夹</a>
+      <p class="text-sm opacity-60 mt-2">媒体将以仅查看权限在 Drive 文件夹中打开</p>
     </div>
   </div>
 
