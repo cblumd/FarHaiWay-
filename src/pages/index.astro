@@ -1,5 +1,8 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
+import en from '../i18n/en.json';
+import th from '../i18n/th.json';
+import ch from '../i18n/ch.json';
 
 const menuItems = [
   { label: 'China',    href: '/china'    },
@@ -61,14 +64,14 @@ const menuItems = [
     <h1 class="text-7xl font-bold text-[#F4E4BC] drop-shadow-md">FarHaiWay</h1>
     <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">Check out my adventures</p>
     <div class="mt-10 flex flex-wrap gap-6 justify-center">
-      <a href="/china" aria-label="China" class="w-48 h-28 flex flex-col items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow-lg transition-transform duration-150 hover:-translate-y-1">
-        <span class="text-xl">China</span>
+      <a href="/china" aria-label={en.home_china} class="w-48 h-28 flex flex-col items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow-lg transition-transform duration-150 hover:-translate-y-1">
+        <span class="text-xl">{en.home_china}</span>
       </a>
-      <a href="/usa" aria-label="USA" class="w-48 h-28 flex flex-col items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow-lg transition-transform duration-150 hover:-translate-y-1">
-        <span class="text-xl">USA</span>
+      <a href="/usa" aria-label={en.home_usa} class="w-48 h-28 flex flex-col items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow-lg transition-transform duration-150 hover:-translate-y-1">
+        <span class="text-xl">{en.home_usa}</span>
       </a>
-      <a href="/thailand" aria-label="Thailand" class="w-48 h-28 flex flex-col items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow-lg transition-transform duration-150 hover:-translate-y-1">
-        <span class="text-xl">Thailand</span>
+      <a href="/thailand" aria-label={en.home_thailand} class="w-48 h-28 flex flex-col items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow-lg transition-transform duration-150 hover:-translate-y-1">
+        <span class="text-xl">{en.home_thailand}</span>
       </a>
     </div>
   </div>
@@ -77,14 +80,14 @@ const menuItems = [
     <h1 class="text-7xl font-bold text-[#F4E4BC] drop-shadow-md">FarHaiWay</h1>
     <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">ตรวจสอบการผจญภัยของฉัน</p>
     <div class="mt-10 flex flex-wrap gap-6 justify-center">
-      <a href="/china" aria-label="China" class="w-48 h-28 flex flex-col items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow-lg transition-transform duration-150 hover:-translate-y-1">
-        <span class="text-xl">China</span>
+      <a href="/china" aria-label={th.home_china} class="w-48 h-28 flex flex-col items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow-lg transition-transform duration-150 hover:-translate-y-1">
+        <span class="text-xl">{th.home_china}</span>
       </a>
-      <a href="/usa" aria-label="USA" class="w-48 h-28 flex flex-col items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow-lg transition-transform duration-150 hover:-translate-y-1">
-        <span class="text-xl">USA</span>
+      <a href="/usa" aria-label={th.home_usa} class="w-48 h-28 flex flex-col items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow-lg transition-transform duration-150 hover:-translate-y-1">
+        <span class="text-xl">{th.home_usa}</span>
       </a>
-      <a href="/thailand" aria-label="Thailand" class="w-48 h-28 flex flex-col items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow-lg transition-transform duration-150 hover:-translate-y-1">
-        <span class="text-xl">Thailand</span>
+      <a href="/thailand" aria-label={th.home_thailand} class="w-48 h-28 flex flex-col items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow-lg transition-transform duration-150 hover:-translate-y-1">
+        <span class="text-xl">{th.home_thailand}</span>
       </a>
     </div>
   </div>
@@ -93,14 +96,14 @@ const menuItems = [
     <h1 class="text-7xl font-bold text-[#F4E4BC] drop-shadow-md">远海之路</h1>
     <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">看看我的冒险</p>
     <div class="mt-10 flex flex-wrap gap-6 justify-center">
-      <a href="/china" aria-label="China" class="w-48 h-28 flex flex-col items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow-lg transition-transform duration-150 hover:-translate-y-1">
-        <span class="text-xl">China</span>
+      <a href="/china" aria-label={ch.home_china} class="w-48 h-28 flex flex-col items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow-lg transition-transform duration-150 hover:-translate-y-1">
+        <span class="text-xl">{ch.home_china}</span>
       </a>
-      <a href="/usa" aria-label="USA" class="w-48 h-28 flex flex-col items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow-lg transition-transform duration-150 hover:-translate-y-1">
-        <span class="text-xl">USA</span>
+      <a href="/usa" aria-label={ch.home_usa} class="w-48 h-28 flex flex-col items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow-lg transition-transform duration-150 hover:-translate-y-1">
+        <span class="text-xl">{ch.home_usa}</span>
       </a>
-      <a href="/thailand" aria-label="Thailand" class="w-48 h-28 flex flex-col items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow-lg transition-transform duration-150 hover:-translate-y-1">
-        <span class="text-xl">Thailand</span>
+      <a href="/thailand" aria-label={ch.home_thailand} class="w-48 h-28 flex flex-col items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow-lg transition-transform duration-150 hover:-translate-y-1">
+        <span class="text-xl">{ch.home_thailand}</span>
       </a>
     </div>
   </div>

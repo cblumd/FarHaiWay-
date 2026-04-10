@@ -1,5 +1,8 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
+import en from '../../i18n/en.json';
+import th from '../../i18n/th.json';
+import ch from '../../i18n/ch.json';
 
 const menuItems = [
   { label: 'Bangkok',     href: '/thailand/bangkok'     },
@@ -39,6 +42,13 @@ const breadcrumbs = [
       <p class="text-lg leading-relaxed mb-4">I began my Asian adventures in Thailand back in 2016. I originally lived in the Ladphrao area of Bangkok before eventually moving to Nonthaburi. I still maintain an apartment there, traveling back once a month from my current base in Zhuhai.</p>
       <p class="text-lg leading-relaxed">Over the years, I've had the incredible privilege of learning to speak, read, and write Thai, deeply enriching my travels and connections.</p>
     </div>
+    <div class="mt-8 w-full flex justify-center">
+      <div class="flex gap-4 flex-wrap justify-center">
+        <a href="/thailand/bangkok" aria-label={en.home_bangkok} class="w-44 h-28 flex items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow transition-transform duration-150 hover:-translate-y-1">{en.home_bangkok}</a>
+        <a href="/thailand/nonthaburi" aria-label={en.home_nonthaburi} class="w-44 h-28 flex items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow transition-transform duration-150 hover:-translate-y-1">{en.home_nonthaburi}</a>
+        <a href="/thailand/kohsamet" aria-label={en.home_kohsamet} class="w-44 h-28 flex items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow transition-transform duration-150 hover:-translate-y-1">{en.home_kohsamet}</a>
+      </div>
+    </div>
   </div>
 
   <!-- TH -->
@@ -49,6 +59,13 @@ const breadcrumbs = [
       <p class="text-lg leading-relaxed mb-4">ฉันเริ่มต้นการผจญภัยในเอเชียในประเทศไทยเมื่อปี 2016 เดิมทีฉันอาศัยอยู่ในย่านลาดพร้าวของกรุงเทพฯ ก่อนที่จะย้ายไปที่นนทบุรี ซึ่งฉันยังคงมีอพาร์ทเมนท์ที่ฉันเดินทางกลับไปเดือนละครั้งจากจูไห่</p>
       <p class="text-lg leading-relaxed">ตลอดหลายปีที่ผ่านมา ฉันได้รับสิทธิพิเศษอย่างเหลือเชื่อในการเรียนรู้การพูด อ่าน และเขียนภาษาไทย ซึ่งช่วยเติมเต็มการเดินทางและความสัมพันธ์ของฉันได้อย่างลึกซึ้ง</p>
     </div>
+    <div class="mt-8 w-full flex justify-center">
+      <div class="flex gap-4 flex-wrap justify-center">
+        <a href="/thailand/bangkok" aria-label={th.home_bangkok} class="w-44 h-28 flex items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow transition-transform duration-150 hover:-translate-y-1">{th.home_bangkok}</a>
+        <a href="/thailand/nonthaburi" aria-label={th.home_nonthaburi} class="w-44 h-28 flex items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow transition-transform duration-150 hover:-translate-y-1">{th.home_nonthaburi}</a>
+        <a href="/thailand/kohsamet" aria-label={th.home_kohsamet} class="w-44 h-28 flex items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow transition-transform duration-150 hover:-translate-y-1">{th.home_kohsamet}</a>
+      </div>
+    </div>
   </div>
 
   <!-- CH -->
@@ -58,6 +75,13 @@ const breadcrumbs = [
     <div class="max-w-2xl mt-12 bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/20 text-white text-left shadow-lg">
       <p class="text-lg leading-relaxed mb-4">我的亚洲冒险之旅于2016年在泰国开始。我最初住在曼谷的Ladphrao地区，后来搬到了暖武里府（Nonthaburi）。我仍然在那里保留着一套公寓，每个月都会从珠海回去一次。</p>
       <p class="text-lg leading-relaxed">这些年来，我非常荣幸地学会了听、说、读、写泰语，极大地丰富了我的旅行和人际交往。</p>
+    </div>
+    <div class="mt-8 w-full flex justify-center">
+      <div class="flex gap-4 flex-wrap justify-center">
+        <a href="/thailand/bangkok" aria-label={ch.home_bangkok} class="w-44 h-28 flex items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow transition-transform duration-150 hover:-translate-y-1">{ch.home_bangkok}</a>
+        <a href="/thailand/nonthaburi" aria-label={ch.home_nonthaburi} class="w-44 h-28 flex items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow transition-transform duration-150 hover:-translate-y-1">{ch.home_nonthaburi}</a>
+        <a href="/thailand/kohsamet" aria-label={ch.home_kohsamet} class="w-44 h-28 flex items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow transition-transform duration-150 hover:-translate-y-1">{ch.home_kohsamet}</a>
+      </div>
     </div>
   </div>
 
