@@ -9,12 +9,13 @@ const menuItems = [
  { label: 'Full Gallery', href: '/gallery' },
 ];
 
-// Mock data for the destination cards based on your architecture
+// Mock data for the destination cards
 const destinations = [
  {
  title: "China",
  desc: "Ancient walls, sprawling megacities, and mist-covered mountains.",
- img: "https://images.unsplash.com/photo-1543097692-44df0ac38dc2?q=80&w=800&auto=format&fit=crop",
+ // Swapped to a highly reliable Pexels image of the Great Wall to fix the broken link
+ img: "https://images.pexels.com/photos/2412603/pexels-photo-2412603.jpeg?auto=compress&cs=tinysrgb&w=800",
  link: "/china"
  },
  {
@@ -60,7 +61,7 @@ const destinations = [
  }
  </style>
 
- <!-- Fixed Night Globe Background (forces out any other backgrounds) -->
+ <!-- Fixed Night Globe Background -->
  <div class="fixed inset-0 z-[-1] bg-[#121212] overflow-hidden pointer-events-none">
  <img 
  src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000&auto=format&fit=crop" 
