@@ -39,36 +39,49 @@ const destinations = [
 ---
 
 <MainLayout title="FarHaiWay" menuItems={menuItems}>
- <!-- Triggers for Peer Logic (Kept your existing trilingual architecture) -->
+ <!-- Triggers for Peer Logic -->
  <input type="radio" name="lang-peer" id="lang-en" class="peer/en hidden" checked />
  <input type="radio" name="lang-peer" id="lang-th" class="peer/th hidden" />
  <input type="radio" name="lang-peer" id="lang-ch" class="peer/ch hidden" />
 
- <!-- Global Dark Theme Wrapper -->
- <div class="min-h-screen bg-[#121212] text-gray-300 font-sans selection:bg-[#800000] selection:text-[#C5A059]">
+ <!-- Global override to kill the blue background from the parent layout -->
+ <style is:global>
+ body, html {
+ background-color: #121212 !important;
+ color: #d1d5db;
+ margin: 0;
+ padding: 0;
+ }
+ /* Import Playfair Display */
+ @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
  
- <!-- Hero Section -->
- <section class="relative w-full h-[65vh] flex items-center justify-center overflow-hidden border-b border-[#C5A059]/20">
- <!-- Moody Background Image (Misty temple/ruins) -->
- <div class="absolute inset-0">
+ .font-serif {
+ font-family: 'Playfair Display', serif;
+ }
+ </style>
+
+ <!-- Fixed Night Globe Background (forces out any other backgrounds) -->
+ <div class="fixed inset-0 z-[-1] bg-[#121212] overflow-hidden pointer-events-none">
  <img 
- src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=2000&auto=format&fit=crop" 
- alt="Ancient misty landscape" 
- class="w-full h-full object-cover opacity-40 mix-blend-luminosity grayscale-[30%]"
+ src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000&auto=format&fit=crop" 
+ alt="Earth at night" 
+ class="w-full h-full object-cover opacity-60 mix-blend-screen"
  />
- <!-- Dark gradient overlays to blend into the background -->
- <div class="absolute inset-0 bg-gradient-to-b from-[#121212]/70 via-transparent to-[#121212]"></div>
- <div class="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent h-full"></div>
+ <!-- Gradients to blend the edges and improve text readability -->
+ <div class="absolute inset-0 bg-gradient-to-b from-[#121212]/95 via-[#121212]/40 to-[#121212]/90"></div>
  </div>
 
- <!-- Hero Content -->
- <div class="relative z-10 text-center px-6 flex flex-col items-center">
+ <!-- Main Content Wrapper -->
+ <div class="relative z-10 flex flex-col items-center justify-center min-h-[85vh] px-4 py-8 max-w-5xl mx-auto">
+ 
+ <!-- Hero Titles (Tightened spacing) -->
+ <div class="text-center mb-10 mt-8">
  <!-- English -->
  <div class="hidden peer-checked/en:block animate-fade-in">
  <h1 class="font-serif text-5xl md:text-7xl font-semibold text-[#C5A059] drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)] tracking-wide">
  FarHaiWay
  </h1>
- <p class="text-sm md:text-base text-gray-400 mt-4 tracking-[0.2em] uppercase">
+ <p class="text-sm md:text-base text-gray-400 mt-3 tracking-[0.2em] uppercase">
  Check out my adventures
  </p>
  </div>
@@ -78,7 +91,7 @@ const destinations = [
  <h1 class="font-serif text-5xl md:text-7xl font-semibold text-[#C5A059] drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)] tracking-wide">
  FarHaiWay
  </h1>
- <p class="text-sm md:text-base text-gray-400 mt-4 tracking-[0.1em] uppercase">
+ <p class="text-sm md:text-base text-gray-400 mt-3 tracking-[0.1em] uppercase">
  ตรวจสอบการผจญภัยของฉัน
  </p>
  </div>
@@ -88,27 +101,20 @@ const destinations = [
  <h1 class="font-serif text-5xl md:text-7xl font-semibold text-[#C5A059] drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)] tracking-widest">
  远海之路
  </h1>
- <p class="text-sm md:text-base text-gray-400 mt-4 tracking-[0.2em] uppercase">
+ <p class="text-sm md:text-base text-gray-400 mt-3 tracking-[0.2em] uppercase">
  看看我的冒险
  </p>
  </div>
-
- <!-- Call to Action Button -->
- <a href="/gallery" class="mt-10 px-8 py-3 bg-[#800000]/80 hover:bg-[#800000] text-[#C5A059] border border-[#B87333]/50 hover:border-[#C5A059] transition-all duration-300 font-serif tracking-wider text-sm shadow-[0_0_20px_rgba(128,0,0,0.3)] backdrop-blur-sm">
- Explore Recent Entries
- </a>
  </div>
- </section>
 
- <!-- Destinations Grid Section -->
- <section class="max-w-5xl mx-auto px-6 py-16 md:py-24">
- <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+ <!-- Destinations Grid Layered OVER the Globe -->
+ <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 z-20">
  
  {destinations.map((dest) => (
- <a href={dest.link} class="group flex flex-col sm:flex-row bg-[#1a1a1a] border border-[#2a2a2a] hover:border-[#C5A059]/40 transition-all duration-500 rounded-sm overflow-hidden shadow-lg hover:shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
+ <a href={dest.link} class="group flex flex-col sm:flex-row bg-[#121212]/60 backdrop-blur-md border border-[#C5A059]/20 hover:border-[#C5A059]/60 transition-all duration-500 rounded-sm overflow-hidden shadow-[0_4px_15px_rgba(0,0,0,0.5)] hover:shadow-[0_4px_20px_rgba(197,160,89,0.15)]">
  <!-- Thumbnail -->
- <div class="w-full sm:w-2/5 h-48 sm:h-auto overflow-hidden relative">
- <div class="absolute inset-0 bg-[#121212]/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+ <div class="w-full sm:w-2/5 h-40 sm:h-auto overflow-hidden relative">
+ <div class="absolute inset-0 bg-[#121212]/30 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
  <img 
  src={dest.img} 
  alt={dest.title}
@@ -117,15 +123,15 @@ const destinations = [
  </div>
  
  <!-- Card Content -->
- <div class="w-full sm:w-3/5 p-6 flex flex-col justify-center">
- <h3 class="font-serif text-xl md:text-2xl text-[#C5A059] mb-3 group-hover:text-[#d4b475] transition-colors">
+ <div class="w-full sm:w-3/5 p-5 flex flex-col justify-center">
+ <h3 class="font-serif text-xl md:text-2xl text-[#C5A059] mb-2 group-hover:text-[#d4b475] transition-colors">
  {dest.title}
  </h3>
- <p class="text-sm text-gray-400 leading-relaxed mb-4 line-clamp-3">
+ <p class="text-xs md:text-sm text-gray-400 leading-relaxed mb-3 line-clamp-3">
  {dest.desc}
  </p>
  <span class="text-[#800000] text-sm font-semibold tracking-wider group-hover:text-[#a00000] transition-colors flex items-center gap-2">
- Read More 
+ Explore 
  <span class="transform group-hover:translate-x-1 transition-transform">→</span>
  </span>
  </div>
@@ -133,18 +139,10 @@ const destinations = [
  ))}
 
  </div>
- </section>
  </div>
 </MainLayout>
 
 <style>
- /* Import the sophisticated Serif font directly into Astro */
- @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
-
- .font-serif {
- font-family: 'Playfair Display', serif;
- }
-
  .animate-fade-in {
  animation: fadeIn 1s ease-out forwards;
  }
