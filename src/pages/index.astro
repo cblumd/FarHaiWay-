@@ -1,157 +1,313 @@
 ---
+
 import MainLayout from '../layouts/MainLayout.astro';
 
+
+
 const menuItems = [
+
  { label: 'China', href: '/china' },
+
  { label: 'Thailand', href: '/thailand' },
+
  { label: 'USA', href: '/usa' },
+
  { separator: true },
+
  { label: 'Full Gallery', href: '/gallery' },
+
 ];
+
+
 
 // Mock data for the destination cards
+
 const destinations = [
+
  {
+
  title: "China",
+
  desc: "Ancient walls, sprawling megacities, and mist-covered mountains.",
+
  // Swapped to a highly reliable Pexels image of the Great Wall to fix the broken link
+
  img: "https://images.pexels.com/photos/2412603/pexels-photo-2412603.jpeg?auto=compress&cs=tinysrgb&w=800",
+
  link: "/china"
+
  },
+
  {
+
  title: "Thailand",
+
  desc: "Golden temples, dense jungles, and the vibrant pulse of the streets.",
+
  img: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=800&auto=format&fit=crop",
+
  link: "/thailand"
+
  },
+
  {
+
  title: "USA",
+
  desc: "Endless highways, rugged canyons, and diverse coastal shores.",
+
  img: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=800&auto=format&fit=crop",
+
  link: "/usa"
+
  },
+
  {
+
  title: "Full Vault",
+
  desc: "Dive into the complete collection of untamed moments and raw footage.",
+
  img: "https://images.unsplash.com/photo-1455849318743-b2233052fcff?q=80&w=800&auto=format&fit=crop",
+
  link: "/gallery"
+
  }
+
 ];
+
 ---
 
+
+
 <MainLayout title="FarHaiWay" menuItems={menuItems}>
+
  <!-- Triggers for Peer Logic -->
+
  <input type="radio" name="lang-peer" id="lang-en" class="peer/en hidden" checked />
+
  <input type="radio" name="lang-peer" id="lang-th" class="peer/th hidden" />
+
  <input type="radio" name="lang-peer" id="lang-ch" class="peer/ch hidden" />
 
+
+
  <!-- Global override to kill the blue background from the parent layout -->
+
  <style is:global>
+
  body, html {
+
  background-color: #121212 !important;
+
  color: #d1d5db;
+
  margin: 0;
+
  padding: 0;
+
  }
+
  /* Import Playfair Display */
+
  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
  
+
  .font-serif {
+
  font-family: 'Playfair Display', serif;
+
  }
+
  </style>
 
+
+
  <!-- Fixed Night Globe Background -->
+
  <div class="fixed inset-0 z-[-1] bg-[#121212] overflow-hidden pointer-events-none">
+
  <img 
+
  src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000&auto=format&fit=crop" 
+
  alt="Earth at night" 
+
  class="w-full h-full object-cover opacity-60 mix-blend-screen"
+
  />
+
  <!-- Gradients to blend the edges and improve text readability -->
+
  <div class="absolute inset-0 bg-gradient-to-b from-[#121212]/95 via-[#121212]/40 to-[#121212]/90"></div>
+
  </div>
+
+
 
  <!-- Main Content Wrapper -->
+
  <div class="relative z-10 flex flex-col items-center justify-center min-h-[85vh] px-4 py-8 max-w-5xl mx-auto">
+
  
+
  <!-- Hero Titles (Tightened spacing) -->
+
  <div class="text-center mb-10 mt-8">
+
  <!-- English -->
+
  <div class="hidden peer-checked/en:block animate-fade-in">
+
  <h1 class="font-serif text-5xl md:text-7xl font-semibold text-[#C5A059] drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)] tracking-wide">
+
  FarHaiWay
+
  </h1>
+
  <p class="text-sm md:text-base text-gray-400 mt-3 tracking-[0.2em] uppercase">
+
  Check out my adventures
+
  </p>
+
  </div>
+
+
 
  <!-- Thai -->
+
  <div class="hidden peer-checked/th:block animate-fade-in">
+
  <h1 class="font-serif text-5xl md:text-7xl font-semibold text-[#C5A059] drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)] tracking-wide">
+
  FarHaiWay
+
  </h1>
+
  <p class="text-sm md:text-base text-gray-400 mt-3 tracking-[0.1em] uppercase">
+
  ตรวจสอบการผจญภัยของฉัน
+
  </p>
+
  </div>
+
+
 
  <!-- Chinese -->
+
  <div class="hidden peer-checked/ch:block animate-fade-in">
+
  <h1 class="font-serif text-5xl md:text-7xl font-semibold text-[#C5A059] drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)] tracking-widest">
+
  远海之路
+
  </h1>
+
  <p class="text-sm md:text-base text-gray-400 mt-3 tracking-[0.2em] uppercase">
+
  看看我的冒险
+
  </p>
+
  </div>
+
  </div>
+
+
 
  <!-- Destinations Grid Layered OVER the Globe -->
+
  <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 z-20">
+
  
+
  {destinations.map((dest) => (
+
  <a href={dest.link} class="group flex flex-col sm:flex-row bg-[#121212]/60 backdrop-blur-md border border-[#C5A059]/20 hover:border-[#C5A059]/60 transition-all duration-500 rounded-sm overflow-hidden shadow-[0_4px_15px_rgba(0,0,0,0.5)] hover:shadow-[0_4px_20px_rgba(197,160,89,0.15)]">
+
  <!-- Thumbnail -->
+
  <div class="w-full sm:w-2/5 h-40 sm:h-auto overflow-hidden relative bg-[#1a1a1a]">
+
  <div class="absolute inset-0 bg-[#121212]/30 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+
  <!-- Added onerror fallback to prevent broken image icons globally -->
+
  <img 
+
  src={dest.img} 
+
  alt={dest.title}
+
  onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop';"
+
  class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-100 mix-blend-luminosity group-hover:mix-blend-normal"
+
  />
+
  </div>
+
  
+
  <!-- Card Content -->
+
  <div class="w-full sm:w-3/5 p-5 flex flex-col justify-center">
+
  <h3 class="font-serif text-xl md:text-2xl text-[#C5A059] mb-2 group-hover:text-[#d4b475] transition-colors">
+
  {dest.title}
+
  </h3>
+
  <p class="text-xs md:text-sm text-gray-400 leading-relaxed mb-3 line-clamp-3">
+
  {dest.desc}
+
  </p>
+
  <span class="text-[#800000] text-sm font-semibold tracking-wider group-hover:text-[#a00000] transition-colors flex items-center gap-2">
+
  Explore 
+
  <span class="transform group-hover:translate-x-1 transition-transform">→</span>
+
  </span>
+
  </div>
+
  </a>
+
  ))}
 
+
+
  </div>
+
  </div>
+
 </MainLayout>
 
+
+
 <style>
+
  .animate-fade-in {
+
  animation: fadeIn 1s ease-out forwards;
+
  }
 
+
+
  @keyframes fadeIn {
+
  from { opacity: 0; transform: translateY(10px); }
+
  to { opacity: 1; transform: translateY(0); }
+
  }
+
 </style>

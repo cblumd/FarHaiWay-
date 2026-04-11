@@ -1,5 +1,7 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
+// Importing the local China night map asset
+import chinaNightMap from '../../assets/china_night_map.jpg';
 
 const menuItems = [
   { label: 'Zhuhai',    href: '/china/zhuhai'    },
@@ -10,120 +12,138 @@ const menuItems = [
   { separator: true },
   { label: '← Back to China', href: '/china' },
 ];
+
 const breadcrumbs = [
-  { label: 'Home',  href: '/'     },
-  { label: 'China', href: '/china'},
+  { label: 'Home',  href: '/'      },
+  { label: 'China', href: '/china' },
 ];
 
 const cities = [
-  { name: 'Zhuhai',    sub: '珠海 · จูไห่',       href: '/china/zhuhai/gallery'    },
-  { name: 'Guangzhou', sub: '广州 · กวางโจว',      href: '/china/guangzhou/gallery' },
-  { name: 'Shenzhen',  sub: '深圳 · เซินเจิ้น',    href: '/china/shenzhen/gallery'  },
-  { name: 'Hong Kong', sub: '香港 · ฮ่องกง',       href: '/china/hongkong/gallery'  },
-  { name: 'Macau',     sub: '澳门 · มาเก๊า',       href: '/china/macau/gallery'     },
+  { name: 'Zhuhai',    sub: 'Guangdong', href: '/china/zhuhai/gallery'    },
+  { name: 'Guangzhou', sub: 'Guangdong', href: '/china/guangzhou/gallery' },
+  { name: 'Shenzhen',  sub: 'Guangdong', href: '/china/shenzhen/gallery'  },
+  { name: 'Hong Kong', sub: 'SAR',       href: '/china/hongkong/gallery'  },
+  { name: 'Macau',     sub: 'SAR',       href: '/china/macau/gallery'     },
 ];
 ---
+
 <MainLayout title="China — Full Gallery | FarHaiWay" menuItems={menuItems} breadcrumbs={breadcrumbs}>
-  <!-- Triggers for Peer Logic -->
-  <input type="radio" name="lang-peer" id="lang-en" class="peer/en hidden" checked />
-  <input type="radio" name="lang-peer" id="lang-th" class="peer/th hidden" />
-  <input type="radio" name="lang-peer" id="lang-ch" class="peer/ch hidden" />
 
-  <div slot="watermark" class="absolute top-10 left-10 opacity-15 pointer-events-none transform scale-150 origin-top-left z-0">
-    <svg width="200" height="150" viewBox="0 0 300 200" fill="#F4E4BC">
-      <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(1.5) translate(10,15)" />
-      <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(0.5) translate(280,20) rotate(20)" />
-      <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(0.5) translate(340,70) rotate(40)" />
-      <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(0.5) translate(340,140) rotate(0)" />
-      <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(0.5) translate(280,190) rotate(-20)" />
-    </svg>
-  </div>
+  <!-- Language Radio Inputs (Kept at top level for CSS targeting) -->
+  <input type="radio" name="lang-peer" id="lang-en" class="hidden" checked />
+  <input type="radio" name="lang-peer" id="lang-th" class="hidden" />
+  <input type="radio" name="lang-peer" id="lang-ch" class="hidden" />
 
-  <div class="block flex flex-col items-center gap-8 w-full max-w-3xl">
-    <div>
-      <h1 class="text-5xl font-bold text-[#F4E4BC] drop-shadow-md">China</h1>
-      <p class="text-xl text-[#E0F7FA] mt-2 font-medium tracking-wide text-center">Check out my adventures in China</p>
+  <div class="content-wrapper">
+    <!-- Background Image Section -->
+    <div class="fixed inset-0 z-[-1] bg-[#121212] overflow-hidden pointer-events-none">
+      <img 
+        src={chinaNightMap.src || chinaNightMap} 
+        alt="Nighttime view of China from space" 
+        class="w-full h-full object-cover opacity-50 mix-blend-screen"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-[#121212]/90 via-[#121212]/30 to-[#121212]/95"></div>
     </div>
 
-    <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 w-full mt-2">
-      {cities.map(city => (
-        <a
-          href={city.href}
-          class="group flex flex-col items-center gap-3 p-5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 hover:scale-105 transition-all duration-300"
-        >
-          <svg class="w-28 h-24" viewBox="0 0 96 78" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="2" y="16" width="92" height="60" rx="4" fill="#B8925A"/>
-            <path d="M2 16 L2 9 Q2 7 5 7 L32 7 Q35 7 37 9 L43 16 Z" fill="#C9A06E"/>
-            <rect x="2" y="24" width="92" height="52" rx="4" fill="#F4E4BC"/>
-            <line x1="14" y1="38" x2="82" y2="38" stroke="#C9A06E" stroke-width="1.5" stroke-opacity="0.6"/>
-            <line x1="14" y1="50" x2="82" y2="50" stroke="#C9A06E" stroke-width="1.5" stroke-opacity="0.6"/>
-            <line x1="14" y1="62" x2="82" y2="62" stroke="#C9A06E" stroke-width="1.5" stroke-opacity="0.6"/>
-          </svg>
-          <div class="text-center">
-            <p class="text-[#F4E4BC] font-bold text-lg group-hover:text-white transition-colors leading-tight">{city.name}</p>
-            <p class="text-[#E0F7FA] text-xs mt-1 opacity-70">{city.sub}</p>
-          </div>
-        </a>
-      ))}
-    </div>
-  </div>
-
-  <div class="hidden peer-checked/th:block flex flex-col items-center gap-8 w-full max-w-3xl">
-    <div>
-      <h1 class="text-5xl font-bold text-[#F4E4BC] drop-shadow-md">ประเทศจีน</h1>
-      <p class="text-xl text-[#E0F7FA] mt-2 font-medium tracking-wide text-center">ดูการผจญภัยของฉันในประเทศจีน</p>
+    <!-- Watermark: 5-star constellation -->
+    <div slot="watermark" class="absolute top-10 left-10 opacity-10 pointer-events-none transform scale-150 origin-top-left z-0">
+      <svg width="200" height="150" viewBox="0 0 300 200" fill="#C5A059">
+        <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(1.5) translate(10,15)" />
+        <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(0.5) translate(280,20) rotate(20)" />
+        <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(0.5) translate(340,70) rotate(40)" />
+        <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(0.5) translate(340,140) rotate(0)" />
+        <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(0.5) translate(280,190) rotate(-20)" />
+      </svg>
     </div>
 
-    <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 w-full mt-2">
-      {cities.map(city => (
-        <a
-          href={city.href}
-          class="group flex flex-col items-center gap-3 p-5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 hover:scale-105 transition-all duration-300"
-        >
-          <svg class="w-28 h-24" viewBox="0 0 96 78" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="2" y="16" width="92" height="60" rx="4" fill="#B8925A"/>
-            <path d="M2 16 L2 9 Q2 7 5 7 L32 7 Q35 7 37 9 L43 16 Z" fill="#C9A06E"/>
-            <rect x="2" y="24" width="92" height="52" rx="4" fill="#F4E4BC"/>
-            <line x1="14" y1="38" x2="82" y2="38" stroke="#C9A06E" stroke-width="1.5" stroke-opacity="0.6"/>
-            <line x1="14" y1="50" x2="82" y2="50" stroke="#C9A06E" stroke-width="1.5" stroke-opacity="0.6"/>
-            <line x1="14" y1="62" x2="82" y2="62" stroke="#C9A06E" stroke-width="1.5" stroke-opacity="0.6"/>
-          </svg>
-          <div class="text-center">
-            <p class="text-[#F4E4BC] font-bold text-lg group-hover:text-white transition-colors leading-tight">{city.name}</p>
-            <p class="text-[#E0F7FA] text-xs mt-1 opacity-70">{city.sub}</p>
-          </div>
-        </a>
-      ))}
-    </div>
-  </div>
+    <!-- Main Content Container -->
+    <div class="relative z-10 flex flex-col items-center min-h-screen px-4 py-12 max-w-4xl mx-auto">
+      
+      <!-- Title Area -->
+      <div class="text-center mb-12 w-full relative z-20">
+        <div class="lang-en-content animate-fade-in">
+          <h1 class="font-serif text-5xl md:text-7xl font-bold text-[#C5A059] drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)]">China — Full Gallery</h1>
+          <p class="text-xl text-gray-400 mt-4 font-medium tracking-widest uppercase">Check out my adventures in China</p>
+        </div>
 
-  <div class="hidden peer-checked/ch:block flex flex-col items-center gap-8 w-full max-w-3xl">
-    <div>
-      <h1 class="text-5xl font-bold text-[#F4E4BC] drop-shadow-md">中国</h1>
-      <p class="text-xl text-[#E0F7FA] mt-2 font-medium tracking-wide text-center">看看我在中国的冒险</p>
-    </div>
+        <div class="lang-th-content animate-fade-in">
+          <h1 class="font-serif text-5xl md:text-7xl font-bold text-[#C5A059] drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)]">ประเทศจีน — แกลเลอรี่ทั้งหมด</h1>
+          <!-- Sub-script removed per request -->
+        </div>
 
-    <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 w-full mt-2">
-      {cities.map(city => (
-        <a
-          href={city.href}
-          class="group flex flex-col items-center gap-3 p-5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 hover:scale-105 transition-all duration-300"
-        >
-          <svg class="w-28 h-24" viewBox="0 0 96 78" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="2" y="16" width="92" height="60" rx="4" fill="#B8925A"/>
-            <path d="M2 16 L2 9 Q2 7 5 7 L32 7 Q35 7 37 9 L43 16 Z" fill="#C9A06E"/>
-            <rect x="2" y="24" width="92" height="52" rx="4" fill="#F4E4BC"/>
-            <line x1="14" y1="38" x2="82" y2="38" stroke="#C9A06E" stroke-width="1.5" stroke-opacity="0.6"/>
-            <line x1="14" y1="50" x2="82" y2="50" stroke="#C9A06E" stroke-width="1.5" stroke-opacity="0.6"/>
-            <line x1="14" y1="62" x2="82" y2="62" stroke="#C9A06E" stroke-width="1.5" stroke-opacity="0.6"/>
-          </svg>
-          <div class="text-center">
-            <p class="text-[#F4E4BC] font-bold text-lg group-hover:text-white transition-colors leading-tight">{city.name}</p>
-            <p class="text-[#E0F7FA] text-xs mt-1 opacity-70">{city.sub}</p>
-          </div>
-        </a>
-      ))}
+        <div class="lang-ch-content animate-fade-in">
+          <h1 class="font-serif text-5xl md:text-7xl font-bold text-[#C5A059] drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)]">中国 — 完整图库</h1>
+          <!-- Sub-script removed per request -->
+        </div>
+      </div>
+
+      <!-- City Grid -->
+      <div class="w-full grid grid-cols-1 sm:grid-cols-3 gap-6 relative z-20">
+        {cities.map(city => (
+          <a
+            href={city.href}
+            class="group flex flex-col items-center gap-4 p-8 rounded-sm bg-[#1a1a1a]/70 backdrop-blur-md border border-[#C5A059]/20 hover:border-[#C5A059]/60 shadow-2xl transition-all duration-300 hover:-translate-y-1"
+          >
+            <!-- Folder Icon -->
+            <svg class="w-24 h-20 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 96 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="16" width="92" height="60" rx="4" fill="#1a1a1a" stroke="#C5A059" stroke-width="1.5" stroke-opacity="0.3"/>
+              <path d="M2 16 L2 9 Q2 7 5 7 L32 7 Q35 7 37 9 L43 16 Z" fill="#1a1a1a" stroke="#C5A059" stroke-width="1.5" stroke-opacity="0.3"/>
+              <rect x="2" y="24" width="92" height="52" rx="4" fill="#121212" stroke="#C5A059" stroke-width="1.5" stroke-opacity="0.6"/>
+              <line x1="14" y1="38" x2="82" y2="38" stroke="#C5A059" stroke-width="1.5" stroke-opacity="0.6"/>
+              <line x1="14" y1="50" x2="82" y2="50" stroke="#C5A059" stroke-width="1.5" stroke-opacity="0.6"/>
+              <line x1="14" y1="62" x2="82" y2="62" stroke="#C5A059" stroke-width="1.5" stroke-opacity="0.6"/>
+            </svg>
+            
+            <div class="text-center">
+              <p class="font-serif text-xl text-gray-200 group-hover:text-[#C5A059] transition-colors">{city.name}</p>
+              <p class="text-xs text-[#C5A059]/60 tracking-widest uppercase mt-1">{city.sub}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+
     </div>
   </div>
 
 </MainLayout>
+
+<!-- Global Styles -->
+<style is:global>
+  body, html {
+    background-color: #121212 !important;
+    color: #d1d5db;
+    margin: 0;
+    padding: 0;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+  
+  .font-serif {
+    font-family: 'Playfair Display', serif;
+  }
+</style>
+
+<!-- Scoped Layout & Animation Styles -->
+<style>
+  /* Robust CSS to handle language visibility mapping to your MainLayout toggles */
+  .lang-en-content,
+  .lang-th-content,
+  .lang-ch-content {
+    display: none;
+  }
+
+  /* Show text depending on which radio button is active */
+  #lang-en:checked ~ .content-wrapper .lang-en-content,
+  #lang-th:checked ~ .content-wrapper .lang-th-content,
+  #lang-ch:checked ~ .content-wrapper .lang-ch-content {
+    display: block;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
