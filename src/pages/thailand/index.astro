@@ -1,5 +1,7 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
+// Import your local image from the assets folder
+import bgImage from '../../assets/Thailand_at_night.jpg';
 
 const menuItems = [
  { label: 'Bangkok', href: '/thailand/bangkok' },
@@ -24,10 +26,6 @@ const cities = [
 
 <MainLayout title="Thailand Adventures | FarHaiWay" menuItems={menuItems} breadcrumbs={breadcrumbs}>
 
- <input type="radio" name="lang-peer" id="lang-en" class="peer/en hidden" checked />
- <input type="radio" name="lang-peer" id="lang-th" class="peer/th hidden" />
- <input type="radio" name="lang-peer" id="lang-ch" class="peer/ch hidden" />
-
  <style is:global>
  body, html {
  background-color: #121212 !important;
@@ -43,11 +41,11 @@ const cities = [
  }
  </style>
 
- <!-- Background: Nighttime Satellite Image -->
+ <!-- Background: Local Nighttime Satellite Image -->
  <div class="fixed inset-0 z-[-1] bg-[#121212] overflow-hidden pointer-events-none">
  <img 
- src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000&auto=format&fit=crop" 
- alt="Nighttime satellite view" 
+ src={bgImage.src} 
+ alt="Nighttime satellite view of Thailand" 
  class="w-full h-full object-cover opacity-50 mix-blend-screen"
  />
  <div class="absolute inset-0 bg-gradient-to-b from-[#121212]/90 via-[#121212]/30 to-[#121212]/95"></div>
@@ -56,43 +54,48 @@ const cities = [
  <!-- Main Content Container -->
  <div class="relative z-10 flex flex-col justify-center items-center min-h-[85vh] px-4 py-12 max-w-4xl mx-auto gap-8">
  
- <!-- Headers -->
+ <!-- Language Inputs MUST be direct siblings of the peer-checked containers -->
+ <input type="radio" name="lang-peer" id="lang-en" class="peer/en hidden" checked />
+ <input type="radio" name="lang-peer" id="lang-th" class="peer/th hidden" />
+ <input type="radio" name="lang-peer" id="lang-ch" class="peer/ch hidden" />
+
+ <!-- EN CONTENT: Wraps BOTH the header and the glass box so nothing is empty -->
+ <div class="hidden peer-checked/en:flex flex-col items-center w-full gap-8 animate-fade-in">
  <div class="text-center w-full">
- <div class="hidden peer-checked/en:block animate-fade-in">
  <h1 class="font-serif text-6xl md:text-8xl font-bold text-[#C5A059] drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)]">Thailand</h1>
  <p class="text-xl md:text-2xl text-gray-400 mt-4 font-medium tracking-widest uppercase">Check out my adventures</p>
  </div>
-
- <div class="hidden peer-checked/th:block animate-fade-in">
- <h1 class="font-serif text-6xl md:text-8xl font-bold text-[#C5A059] drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)]">ประเทศไทย</h1>
- <p class="text-xl md:text-2xl text-gray-400 mt-4 font-medium tracking-wide">การผจญภัยของฉันในประเทศไทย</p>
- </div>
-
- <div class="hidden peer-checked/ch:block animate-fade-in">
- <h1 class="font-serif text-6xl md:text-8xl font-bold text-[#C5A059] drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)]">泰国</h1>
- <p class="text-xl md:text-2xl text-gray-400 mt-4 font-medium tracking-widest">我在泰国的冒险</p>
- </div>
- </div>
-
- <!-- Content Boxes (Frosted Glass Theme) -->
- <div class="w-full bg-[#1a1a1a]/70 backdrop-blur-md border border-[#C5A059]/20 p-8 md:p-10 rounded-sm shadow-2xl">
- <div class="hidden peer-checked/en:block animate-fade-in text-gray-300">
+ <div class="w-full bg-[#1a1a1a]/70 backdrop-blur-md border border-[#C5A059]/20 p-8 md:p-10 rounded-sm shadow-2xl text-gray-300">
  <p class="text-lg leading-relaxed mb-6 italic">I began my Asian adventures in Thailand back in 2016. I originally lived in the Ladphrao area of Bangkok before eventually moving to Nonthaburi. I still maintain an apartment there, traveling back once a month from my current base in Zhuhai.</p>
  <p class="text-lg leading-relaxed">Over the years, I've had the incredible privilege of learning to speak, read, and write Thai, deeply enriching my travels and connections.</p>
  </div>
+ </div>
 
- <div class="hidden peer-checked/th:block animate-fade-in text-gray-300">
+ <!-- TH CONTENT -->
+ <div class="hidden peer-checked/th:flex flex-col items-center w-full gap-8 animate-fade-in">
+ <div class="text-center w-full">
+ <h1 class="font-serif text-6xl md:text-8xl font-bold text-[#C5A059] drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)]">ประเทศไทย</h1>
+ <p class="text-xl md:text-2xl text-gray-400 mt-4 font-medium tracking-wide">การผจญภัยของฉันในประเทศไทย</p>
+ </div>
+ <div class="w-full bg-[#1a1a1a]/70 backdrop-blur-md border border-[#C5A059]/20 p-8 md:p-10 rounded-sm shadow-2xl text-gray-300">
  <p class="text-lg leading-relaxed mb-6 italic">ฉันเริ่มต้นการผจญภัยในเอเชียในประเทศไทยเมื่อปี 2016 เดิมทีฉันอาศัยอยู่ในย่านลาดพร้าวของกรุงเทพฯ ก่อนที่จะย้ายไปที่นนทบุรี ซึ่งฉันยังคงมีอพาร์ทเมนท์ที่ฉันเดินทางกลับไปเดือนละครั้งจากจูไห่</p>
  <p class="text-lg leading-relaxed">ตลอดหลายปีที่ผ่านมา ฉันได้รับสิทธิพิเศษอย่างเหลือเชื่อในการเรียนรู้การพูด อ่าน และเขียนภาษาไทย ซึ่งช่วยเติมเต็มการเดินทางและความสัมพันธ์ของฉันได้อย่างลึกซึ้ง</p>
  </div>
+ </div>
 
- <div class="hidden peer-checked/ch:block animate-fade-in text-gray-300">
+ <!-- CH CONTENT -->
+ <div class="hidden peer-checked/ch:flex flex-col items-center w-full gap-8 animate-fade-in">
+ <div class="text-center w-full">
+ <h1 class="font-serif text-6xl md:text-8xl font-bold text-[#C5A059] drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)]">泰国</h1>
+ <p class="text-xl md:text-2xl text-gray-400 mt-4 font-medium tracking-widest">我在泰国的冒险</p>
+ </div>
+ <div class="w-full bg-[#1a1a1a]/70 backdrop-blur-md border border-[#C5A059]/20 p-8 md:p-10 rounded-sm shadow-2xl text-gray-300">
  <p class="text-lg leading-relaxed mb-6 italic">我的亚洲冒险之旅于2016年在泰国开始。我最初住在曼谷的Ladphrao地区，后来搬到了暖武里府（Nonthaburi）。我仍然在那里保留着一套公寓，每个月都会从珠海回去一次。</p>
  <p class="text-lg leading-relaxed">这些年来，我非常荣幸地学会了听、说、读、写泰语，极大地丰富了我的旅行和人际交往。</p>
  </div>
  </div>
 
- <!-- Soft Buttons Grid -->
+ <!-- Soft Buttons Grid (Always Visible) -->
  <div class="w-full grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
  {cities.map((city) => (
  <a href={city.href} class="group relative py-5 px-2 text-center bg-[#121212]/50 backdrop-blur-sm border border-[#C5A059]/10 hover:border-[#C5A059]/60 transition-all duration-300 shadow-lg">
