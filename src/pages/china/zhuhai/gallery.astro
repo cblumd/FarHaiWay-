@@ -1,7 +1,7 @@
 ---
-import MainLayout from '../../../../layouts/MainLayout.astro';
+import MainLayout from '../../../layouts/MainLayout.astro';
 // Importing the local background image from the src/assets folder
-import chinaNightMap from '../../../../assets/china_night_map.jpg';
+import chinaNightMap from '../../../assets/china_night_map.jpg';
 
 const menuItems = [
   { label: 'Guangzhou', href: '/china/guangzhou' },
@@ -68,27 +68,36 @@ const breadcrumbs = [
         <!-- EN -->
         <div class="lang-en-content animate-fade-in text-center w-full">
           <h1 class="font-serif text-5xl md:text-6xl font-bold text-[#C5A059] drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)]">Gallery for Zhuhai</h1>
-          <div class="mt-8 bg-[#1a1a1a]/70 px-8 py-6 rounded-sm backdrop-blur-md border border-[#C5A059]/20 text-gray-300 shadow-2xl max-w-md mx-auto">
-            <p class="text-lg">Google Drive: <a href="https://drive.google.com/drive/folders/1-mgf9mphJPv186L-8QW_TAHvbISO7gMS?usp=drive_link" target="_blank" rel="noopener noreferrer" class="text-[#C5A059] hover:text-white underline transition-colors font-semibold">Click Here</a></p>
-            <p class="text-sm opacity-60 mt-2 italic">Media will open in a view-only Drive folder.</p>
+          <div class="mt-8 bg-[#1a1a1a]/70 px-8 py-8 rounded-sm backdrop-blur-md border border-[#C5A059]/20 text-gray-300 shadow-2xl max-w-md mx-auto flex flex-col items-center">
+            <p class="text-lg mb-4">Google Drive Link:</p>
+            <a href="https://drive.google.com/drive/folders/1-mgf9mphJPv186L-8QW_TAHvbISO7gMS?usp=drive_link" target="_blank" rel="noopener noreferrer" class="bg-[#C5A059] text-[#121212] font-bold py-3 px-8 rounded hover:bg-white transition-colors duration-300 shadow-lg">
+              Click Here
+            </a>
+            <p class="text-sm opacity-60 mt-5 italic">Media will open in a view-only Drive folder.</p>
           </div>
         </div>
 
         <!-- TH -->
         <div class="lang-th-content animate-fade-in text-center w-full">
           <h1 class="font-serif text-5xl md:text-6xl font-bold text-[#C5A059] drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)]">แกลเลอรี่สำหรับจูไห่</h1>
-          <div class="mt-8 bg-[#1a1a1a]/70 px-8 py-6 rounded-sm backdrop-blur-md border border-[#C5A059]/20 text-gray-300 shadow-2xl max-w-md mx-auto">
-            <p class="text-lg">Google Drive: <a href="https://drive.google.com/drive/folders/1-mgf9mphJPv186L-8QW_TAHvbISO7gMS?usp=drive_link" target="_blank" rel="noopener noreferrer" class="text-[#C5A059] hover:text-white underline transition-colors font-semibold">คลิกที่นี่</a></p>
-            <p class="text-sm opacity-60 mt-2 italic">สื่อจะเปิดในโฟลเดอร์ Drive แบบดูได้อย่างเดียว</p>
+          <div class="mt-8 bg-[#1a1a1a]/70 px-8 py-8 rounded-sm backdrop-blur-md border border-[#C5A059]/20 text-gray-300 shadow-2xl max-w-md mx-auto flex flex-col items-center">
+            <p class="text-lg mb-4">ลิงก์ Google Drive:</p>
+            <a href="https://drive.google.com/drive/folders/1-mgf9mphJPv186L-8QW_TAHvbISO7gMS?usp=drive_link" target="_blank" rel="noopener noreferrer" class="bg-[#C5A059] text-[#121212] font-bold py-3 px-8 rounded hover:bg-white transition-colors duration-300 shadow-lg">
+              คลิกที่นี่
+            </a>
+            <p class="text-sm opacity-60 mt-5 italic">สื่อจะเปิดในโฟลเดอร์ Drive แบบดูได้อย่างเดียว</p>
           </div>
         </div>
 
         <!-- CH -->
         <div class="lang-ch-content animate-fade-in text-center w-full">
           <h1 class="font-serif text-5xl md:text-6xl font-bold text-[#C5A059] drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)]">珠海图库</h1>
-          <div class="mt-8 bg-[#1a1a1a]/70 px-8 py-6 rounded-sm backdrop-blur-md border border-[#C5A059]/20 text-gray-300 shadow-2xl max-w-md mx-auto">
-            <p class="text-lg">Google Drive: <a href="https://drive.google.com/drive/folders/1-mgf9mphJPv186L-8QW_TAHvbISO7gMS?usp=drive_link" target="_blank" rel="noopener noreferrer" class="text-[#C5A059] hover:text-white underline transition-colors font-semibold">点击这里</a></p>
-            <p class="text-sm opacity-60 mt-2 italic">媒体将在仅供查看的云端硬盘文件夹中打开。</p>
+          <div class="mt-8 bg-[#1a1a1a]/70 px-8 py-8 rounded-sm backdrop-blur-md border border-[#C5A059]/20 text-gray-300 shadow-2xl max-w-md mx-auto flex flex-col items-center">
+            <p class="text-lg mb-4">Google Drive 链接:</p>
+            <a href="https://drive.google.com/drive/folders/1-mgf9mphJPv186L-8QW_TAHvbISO7gMS?usp=drive_link" target="_blank" rel="noopener noreferrer" class="bg-[#C5A059] text-[#121212] font-bold py-3 px-8 rounded hover:bg-white transition-colors duration-300 shadow-lg">
+              点击这里
+            </a>
+            <p class="text-sm opacity-60 mt-5 italic">媒体将在仅供查看的云端硬盘文件夹中打开。</p>
           </div>
         </div>
 
