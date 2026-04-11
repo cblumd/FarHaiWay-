@@ -2,92 +2,118 @@
 import MainLayout from '../../layouts/MainLayout.astro';
 
 const menuItems = [
-  { label: 'Zhuhai',    href: '/china/zhuhai'    },
-  { label: 'Guangzhou', href: '/china/guangzhou' },
-  { label: 'Shenzhen',  href: '/china/shenzhen'  },
-  { label: 'Hong Kong', href: '/china/hongkong'  },
-  { label: 'Macau',     href: '/china/macau'     },
-  { separator: true },
-  { label: 'Full Gallery', href: '/china/gallery' },
+ { label: 'Zhuhai', href: '/china/zhuhai' },
+ { label: 'Guangzhou', href: '/china/guangzhou' },
+ { label: 'Shenzhen', href: '/china/shenzhen' },
+ { label: 'Hong Kong', href: '/china/hongkong' },
+ { label: 'Macau', href: '/china/macau' },
+ { separator: true },
+ { label: 'Full Gallery', href: '/china/gallery' },
 ];
 
 const breadcrumbs = [
-  { label: 'Home', href: '/' },
+ { label: 'Home', href: '/' },
+];
+
+// รายการเมืองสำหรับการสร้างปุ่มใน Grid
+const cities = [
+ { label: 'Zhuhai', href: '/china/zhuhai' },
+ { label: 'Guangzhou', href: '/china/guangzhou' },
+ { label: 'Shenzhen', href: '/china/shenzhen' },
+ { label: 'Hong Kong', href: '/china/hongkong' },
+ { label: 'Macau', href: '/china/macau' },
+ { label: 'Full Gallery', href: '/china/gallery' },
 ];
 ---
+
 <MainLayout title="China Adventures | FarHaiWay" menuItems={menuItems} breadcrumbs={breadcrumbs}>
 
-  <!-- Triggers for Peer Logic -->
-  <input type="radio" name="lang-peer" id="lang-en" class="peer/en hidden" checked />
-  <input type="radio" name="lang-peer" id="lang-th" class="peer/th hidden" />
-  <input type="radio" name="lang-peer" id="lang-ch" class="peer/ch hidden" />
+ <input type="radio" name="lang-peer" id="lang-en" class="peer/en hidden" checked />
+ <input type="radio" name="lang-peer" id="lang-th" class="peer/th hidden" />
+ <input type="radio" name="lang-peer" id="lang-ch" class="peer/ch hidden" />
 
-  <!-- Watermark: 5-star constellation -->
-  <div slot="watermark" class="absolute top-10 left-10 opacity-15 pointer-events-none transform scale-150 origin-top-left z-0">
-    <svg width="200" height="150" viewBox="0 0 300 200" fill="#F4E4BC">
-      <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(1.5) translate(10,15)" />
-      <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(0.5) translate(280,20) rotate(20)" />
-      <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(0.5) translate(340,70) rotate(40)" />
-      <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(0.5) translate(340,140) rotate(0)" />
-      <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(0.5) translate(280,190) rotate(-20)" />
-    </svg>
-  </div>
+ <style is:global>
+ body, html {
+ background-color: #121212 !important;
+ color: #d1d5db;
+ margin: 0;
+ padding: 0;
+ }
+ /* Import Playfair Display */
+ @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+ 
+ .font-serif {
+ font-family: 'Playfair Display', serif;
+ }
+ </style>
 
-  <!-- EN -->
-  <div class="hidden peer-checked/en:flex flex-col items-center">
-    <h1 class="text-7xl font-bold text-[#F4E4BC] drop-shadow-md">China</h1>
-    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">Check out my adventures in China</p>
-    <div class="max-w-2xl mt-12 bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/20 text-white text-left shadow-lg">
-      <p class="text-lg leading-relaxed mb-4">I am currently based in the coastal city of Zhuhai, working as a high school teacher. I spend my days teaching math, basic science, and economics to 10th and 11th-grade ESL students.</p>
-      <p class="text-lg leading-relaxed">Living here provides the perfect launchpad for my travels, allowing me to frequently hop over and explore incredible nearby cities and regions.</p>
-    </div>
-    <div class="mt-8 w-full flex justify-center">
-      <div class="flex gap-4 flex-wrap justify-center">
-        <a href="/china/zhuhai" aria-label="Zhuhai" class="w-44 h-28 flex items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow transition-transform duration-150 hover:-translate-y-1">Zhuhai</a>
-        <a href="/china/guangzhou" aria-label="Guangzhou" class="w-44 h-28 flex items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow transition-transform duration-150 hover:-translate-y-1">Guangzhou</a>
-        <a href="/china/shenzhen" aria-label="Shenzhen" class="w-44 h-28 flex items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow transition-transform duration-150 hover:-translate-y-1">Shenzhen</a>
-        <a href="/china/hongkong" aria-label="Hong Kong" class="w-44 h-28 flex items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow transition-transform duration-150 hover:-translate-y-1">Hong Kong</a>
-        <a href="/china/macau" aria-label="Macau" class="w-44 h-28 flex items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow transition-transform duration-150 hover:-translate-y-1">Macau</a>
-      </div>
-    </div>
-  </div>
+ <div class="fixed inset-0 z-[-1] bg-[#121212] overflow-hidden pointer-events-none">
+ <img 
+ src="https://images.unsplash.com/photo-1544819667-97505127bb5a?q=80&w=2000&auto=format&fit=crop" 
+ alt="China at night from space" 
+ class="w-full h-full object-cover opacity-50 mix-blend-screen"
+ />
+ <div class="absolute inset-0 bg-gradient-to-b from-[#121212]/90 via-[#121212]/30 to-[#121212]/95"></div>
+ </div>
 
-  <!-- TH -->
-  <div class="hidden peer-checked/th:flex flex-col items-center">
-    <h1 class="text-7xl font-bold text-[#F4E4BC] drop-shadow-md">ประเทศจีน</h1>
-    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">การผจญภัยของฉันในประเทศจีน</p>
-    <div class="max-w-2xl mt-12 bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/20 text-white text-left shadow-lg">
-      <p class="text-lg leading-relaxed mb-4">ปัจจุบันฉันพำนักอยู่ในเมืองชายฝั่งทะเลจูไห่ ทำงานเป็นครูโรงเรียนมัธยมปลาย ฉันสอนวิชาคณิตศาสตร์ วิทยาศาสตร์พื้นฐาน และเศรษฐศาสตร์ให้กับนักเรียน ESL</p>
-      <p class="text-lg leading-relaxed">การอาศัยอยู่ที่นี่เป็นจุดเริ่มต้นที่สมบูรณ์แบบสำหรับการเดินทาง ช่วยให้ฉันสามารถไปสำรวจเมืองและภูมิภาคใกล้เคียงที่น่าทึ่งได้อย่างบ่อยครั้ง</p>
-    </div>
-    <div class="mt-8 w-full flex justify-center">
-      <div class="flex gap-4 flex-wrap justify-center">
-        <a href="/china/zhuhai" aria-label="จูไห่" class="w-44 h-28 flex items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow transition-transform duration-150 hover:-translate-y-1">จูไห่</a>
-        <a href="/china/guangzhou" aria-label="กวางโจว" class="w-44 h-28 flex items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow transition-transform duration-150 hover:-translate-y-1">กวางโจว</a>
-        <a href="/china/shenzhen" aria-label="เซินเจิ้น" class="w-44 h-28 flex items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow transition-transform duration-150 hover:-translate-y-1">เซินเจิ้น</a>
-        <a href="/china/hongkong" aria-label="ฮ่องกง" class="w-44 h-28 flex items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow transition-transform duration-150 hover:-translate-y-1">ฮ่องกง</a>
-        <a href="/china/macau" aria-label="มาเก๊า" class="w-44 h-28 flex items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow transition-transform duration-150 hover:-translate-y-1">มาเก๊า</a>
-      </div>
-    </div>
-  </div>
+ <div class="relative z-10 flex flex-col items-center min-h-screen px-4 py-12 max-w-4xl mx-auto">
+ 
+ <div class="text-center mb-10">
+ <div class="hidden peer-checked/en:block animate-fade-in">
+ <h1 class="font-serif text-6xl md:text-8xl font-bold text-[#C5A059] drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)]">China</h1>
+ <p class="text-xl md:text-2xl text-gray-400 mt-4 font-medium tracking-widest uppercase">Check out my adventures</p>
+ </div>
 
-  <!-- CH -->
-  <div class="hidden peer-checked/ch:flex flex-col items-center">
-    <h1 class="text-7xl font-bold text-[#F4E4BC] drop-shadow-md">中国</h1>
-    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">我在中国的冒险</p>
-    <div class="max-w-2xl mt-12 bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/20 text-white text-left shadow-lg">
-      <p class="text-lg leading-relaxed mb-4">我目前居住在海滨城市珠海，担任高中教师。我向 ESL 学生教授数学、基础科学和经济学。</p>
-      <p class="text-lg leading-relaxed">住在这里为我的旅行提供了完美的出发点，让我能够频繁地前往并探索周边令人惊叹的城市和地区。</p>
-    </div>
-    <div class="mt-8 w-full flex justify-center">
-      <div class="flex gap-4 flex-wrap justify-center">
-        <a href="/china/zhuhai" aria-label="珠海" class="w-44 h-28 flex items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow transition-transform duration-150 hover:-translate-y-1">珠海</a>
-        <a href="/china/guangzhou" aria-label="广州" class="w-44 h-28 flex items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow transition-transform duration-150 hover:-translate-y-1">广州</a>
-        <a href="/china/shenzhen" aria-label="深圳" class="w-44 h-28 flex items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow transition-transform duration-150 hover:-translate-y-1">深圳</a>
-        <a href="/china/hongkong" aria-label="香港" class="w-44 h-28 flex items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow transition-transform duration-150 hover:-translate-y-1">香港</a>
-        <a href="/china/macau" aria-label="澳门" class="w-44 h-28 flex items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold rounded-xl shadow transition-transform duration-150 hover:-translate-y-1">澳门</a>
-      </div>
-    </div>
-  </div>
+ <div class="hidden peer-checked/th:block animate-fade-in">
+ <h1 class="font-serif text-6xl md:text-8xl font-bold text-[#C5A059] drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)]">ประเทศจีน</h1>
+ <p class="text-xl md:text-2xl text-gray-400 mt-4 font-medium tracking-wide">การผจญภัยของฉันในประเทศจีน</p>
+ </div>
+
+ <div class="hidden peer-checked/ch:block animate-fade-in">
+ <h1 class="font-serif text-6xl md:text-8xl font-bold text-[#C5A059] drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)]">中国</h1>
+ <p class="text-xl md:text-2xl text-gray-400 mt-4 font-medium tracking-widest">我在中国的冒险</p>
+ </div>
+ </div>
+
+ <div class="w-full mb-12 bg-[#1a1a1a]/70 backdrop-blur-md border border-[#C5A059]/20 p-8 rounded-sm shadow-2xl">
+ <div class="hidden peer-checked/en:block animate-fade-in text-gray-300">
+ <p class="text-lg leading-relaxed mb-4 italic">I am currently based in the coastal city of Zhuhai, working as a high school teacher. I spend my days teaching math, basic science, and economics to 10th and 11th-grade ESL students.</p>
+ <p class="text-lg leading-relaxed">Living here provides the perfect launchpad for my travels, allowing me to frequently hop over and explore incredible nearby cities and regions.</p>
+ </div>
+
+ <div class="hidden peer-checked/th:block animate-fade-in text-gray-300">
+ <p class="text-lg leading-relaxed mb-4 italic">ปัจจุบันฉันพำนักอยู่ในเมืองชายฝั่งทะเลจูไห่ ทำงานเป็นครูโรงเรียนมัธยมปลาย ฉันสอนวิชาคณิตศาสตร์ วิทยาศาสตร์พื้นฐาน และเศรษฐศาสตร์ให้กับนักเรียน ESL</p>
+ <p class="text-lg leading-relaxed">การอาศัยอยู่ที่นี่เป็นจุดเริ่มต้นที่สมบูรณ์แบบสำหรับการเดินทาง ช่วยให้ฉันสามารถไปสำรวจเมืองและภูมิภาคใกล้เคียงที่น่าทึ่งได้อย่างบ่อยครั้ง</p>
+ </div>
+
+ <div class="hidden peer-checked/ch:block animate-fade-in text-gray-300">
+ <p class="text-lg leading-relaxed mb-4 italic">我目前居住在海滨城市珠海，担任高中教师。我向 ESL 学生教授数学、基础科学和经济学。</p>
+ <p class="text-lg leading-relaxed">住在这里为我的旅行提供了完美的出发点，让我能够频繁地前往并探索周边令人惊叹的城市和地区。</p>
+ </div>
+ </div>
+
+ <div class="w-full grid grid-cols-2 md:grid-cols-3 gap-4">
+ {cities.map((city) => (
+ <a href={city.href} class="group relative py-4 px-2 text-center bg-[#121212]/50 backdrop-blur-sm border border-[#C5A059]/10 hover:border-[#C5A059]/60 transition-all duration-300 shadow-lg">
+ <span class="font-serif text-lg text-gray-300 group-hover:text-[#C5A059] transition-colors tracking-wider">
+ {city.label}
+ </span>
+ <div class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#800000] group-hover:w-full transition-all duration-500"></div>
+ </a>
+ ))}
+ </div>
+
+ </div>
 
 </MainLayout>
+
+<style>
+ .animate-fade-in {
+ animation: fadeIn 0.8s ease-out forwards;
+ }
+
+ @keyframes fadeIn {
+ from { opacity: 0; transform: translateY(15px); }
+ to { opacity: 1; transform: translateY(0); }
+ }
+</style>
