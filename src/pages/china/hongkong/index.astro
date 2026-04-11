@@ -1,5 +1,7 @@
 ---
 import MainLayout from '../../../layouts/MainLayout.astro';
+// Importing the local background image from the src/assets folder
+import chinaNightMap from '../../../assets/china_night_map.jpg';
 
 const menuItems = [
   { label: 'Zhuhai',    href: '/china/zhuhai'    },
@@ -15,60 +17,147 @@ const breadcrumbs = [
   { label: 'China', href: '/china' },
 ];
 ---
+
 <MainLayout title="Hong Kong | FarHaiWay" menuItems={menuItems} breadcrumbs={breadcrumbs}>
 
-  <!-- Triggers for Peer Logic -->
-  <input type="radio" name="lang-peer" id="lang-en" class="peer/en hidden" checked />
-  <input type="radio" name="lang-peer" id="lang-th" class="peer/th hidden" />
-  <input type="radio" name="lang-peer" id="lang-ch" class="peer/ch hidden" />
+  <!-- Language Radio Inputs (Kept at the top level for CSS targeting) -->
+  <input type="radio" name="lang-peer" id="lang-en" class="hidden" checked />
+  <input type="radio" name="lang-peer" id="lang-th" class="hidden" />
+  <input type="radio" name="lang-peer" id="lang-ch" class="hidden" />
 
-  <div slot="watermark" class="absolute top-10 left-10 opacity-15 pointer-events-none transform scale-150 origin-top-left z-0">
-    <svg width="200" height="150" viewBox="0 0 300 200" fill="#F4E4BC">
-      <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(1.5) translate(10,15)" />
-      <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(0.5) translate(280,20) rotate(20)" />
-      <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(0.5) translate(340,70) rotate(40)" />
-      <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(0.5) translate(340,140) rotate(0)" />
-      <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(0.5) translate(280,190) rotate(-20)" />
-    </svg>
-  </div>
-
-  <!-- EN -->
-  <div class="hidden peer-checked/en:flex flex-col items-center">
-    <h1 class="text-7xl font-bold text-[#F4E4BC] drop-shadow-md">Hong Kong</h1>
-    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">A fusion of soaring skyscrapers and historic island culture.</p>
-    <div class="max-w-2xl mt-12 bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/20 text-white text-left shadow-lg">
-      <p class="text-lg leading-relaxed mb-4">[Enter text here]</p>
-      <p class="text-lg leading-relaxed">[Enter text here]</p>
+  <div class="content-wrapper">
+    <!-- Background Image Section -->
+    <div class="fixed inset-0 z-[-1] bg-[#121212] overflow-hidden pointer-events-none">
+      <img 
+        src={chinaNightMap.src || chinaNightMap} 
+        alt="Nighttime view of China from space" 
+        class="w-full h-full object-cover opacity-50 mix-blend-screen"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-[#121212]/90 via-[#121212]/30 to-[#121212]/95"></div>
     </div>
-    <a href="/china/hongkong/gallery" class="mt-8 flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold px-6 py-3 rounded-xl backdrop-blur-sm transition-all">
-      📁 View Gallery
-    </a>
-  </div>
 
-  <!-- TH -->
-  <div class="hidden peer-checked/th:flex flex-col items-center">
-    <h1 class="text-7xl font-bold text-[#F4E4BC] drop-shadow-md">ฮ่องกง</h1>
-    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">การผสมผสานระหว่างตึกระฟ้าที่สูงตระหง่านและวัฒนธรรมเกาะที่มีประวัติศาสตร์</p>
-    <div class="max-w-2xl mt-12 bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/20 text-white text-left shadow-lg">
-      <p class="text-lg leading-relaxed mb-4">[กรอกข้อความที่นี่]</p>
-      <p class="text-lg leading-relaxed">[กรอกข้อความที่นี่]</p>
+    <!-- Watermark: 5-star constellation (Adapted to new theme colors) -->
+    <div slot="watermark" class="absolute top-10 left-10 opacity-10 pointer-events-none transform scale-150 origin-top-left z-0">
+      <svg width="200" height="150" viewBox="0 0 300 200" fill="#C5A059">
+        <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(1.5) translate(10,15)" />
+        <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(0.5) translate(280,20) rotate(20)" />
+        <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(0.5) translate(340,70) rotate(40)" />
+        <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(0.5) translate(340,140) rotate(0)" />
+        <polygon points="50,20 60,45 85,45 65,60 75,85 50,70 25,85 35,60 15,45 40,45" transform="scale(0.5) translate(280,190) rotate(-20)" />
+      </svg>
     </div>
-    <a href="/china/hongkong/gallery" class="mt-8 flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold px-6 py-3 rounded-xl backdrop-blur-sm transition-all">
-      📁 ดูแกลเลอรี่
-    </a>
-  </div>
 
-  <!-- CH -->
-  <div class="hidden peer-checked/ch:flex flex-col items-center">
-    <h1 class="text-7xl font-bold text-[#F4E4BC] drop-shadow-md">香港</h1>
-    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">摩天大楼与历史岛屿文化的完美融合。</p>
-    <div class="max-w-2xl mt-12 bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/20 text-white text-left shadow-lg">
-      <p class="text-lg leading-relaxed mb-4">[在此输入文字]</p>
-      <p class="text-lg leading-relaxed">[在此输入文字]</p>
+    <!-- Main Content Container -->
+    <div class="relative z-10 flex flex-col items-center min-h-screen px-4 py-12 max-w-4xl mx-auto">
+      
+      <!-- Title Area -->
+      <div class="text-center mb-10 w-full relative z-20">
+        <div class="lang-en-content animate-fade-in">
+          <h1 class="font-serif text-6xl md:text-8xl font-bold text-[#C5A059] drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)]">Hong Kong</h1>
+          <p class="text-xl md:text-2xl text-gray-400 mt-4 font-medium tracking-widest uppercase">A fusion of soaring skyscrapers and historic island culture.</p>
+        </div>
+
+        <div class="lang-th-content animate-fade-in">
+          <h1 class="font-serif text-6xl md:text-8xl font-bold text-[#C5A059] drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)]">ฮ่องกง</h1>
+          <p class="text-xl md:text-2xl text-gray-400 mt-4 font-medium tracking-wide">การผสมผสานระหว่างตึกระฟ้าที่สูงตระหง่านและวัฒนธรรมเกาะที่มีประวัติศาสตร์</p>
+        </div>
+
+        <div class="lang-ch-content animate-fade-in">
+          <h1 class="font-serif text-6xl md:text-8xl font-bold text-[#C5A059] drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)]">香港</h1>
+          <p class="text-xl md:text-2xl text-gray-400 mt-4 font-medium tracking-widest">摩天大楼与历史岛屿文化的完美融合。</p>
+        </div>
+      </div>
+
+      <!-- Text Box Description Area -->
+      <div class="w-full mb-12 bg-[#1a1a1a]/70 backdrop-blur-md border border-[#C5A059]/20 p-8 rounded-sm shadow-2xl relative z-20">
+        <div class="lang-en-content animate-fade-in text-gray-300">
+          <p class="text-lg leading-relaxed mb-4">[Enter text here]</p>
+          <p class="text-lg leading-relaxed">[Enter text here]</p>
+        </div>
+
+        <div class="lang-th-content animate-fade-in text-gray-300">
+          <p class="text-lg leading-relaxed mb-4">[กรอกข้อความที่นี่]</p>
+          <p class="text-lg leading-relaxed">[กรอกข้อความที่นี่]</p>
+        </div>
+
+        <div class="lang-ch-content animate-fade-in text-gray-300">
+          <p class="text-lg leading-relaxed mb-4">[在此输入文字]</p>
+          <p class="text-lg leading-relaxed">[在此输入文字]</p>
+        </div>
+      </div>
+
+      <!-- Gallery Button -->
+      <div class="w-full flex justify-center relative z-20">
+        <div class="lang-en-content w-full md:w-auto">
+          <a href="/china/hongkong/gallery" class="group relative py-4 px-8 text-center bg-[#121212]/50 backdrop-blur-sm border border-[#C5A059]/10 hover:border-[#C5A059]/60 transition-all duration-300 shadow-lg block">
+            <span class="font-serif text-lg text-gray-300 group-hover:text-[#C5A059] transition-colors tracking-wider block">
+              📁 View Gallery
+            </span>
+            <div class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#800000] group-hover:w-full transition-all duration-500"></div>
+          </a>
+        </div>
+
+        <div class="lang-th-content w-full md:w-auto">
+          <a href="/china/hongkong/gallery" class="group relative py-4 px-8 text-center bg-[#121212]/50 backdrop-blur-sm border border-[#C5A059]/10 hover:border-[#C5A059]/60 transition-all duration-300 shadow-lg block">
+            <span class="font-serif text-lg text-gray-300 group-hover:text-[#C5A059] transition-colors tracking-wider block">
+              📁 ดูแกลเลอรี่
+            </span>
+            <div class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#800000] group-hover:w-full transition-all duration-500"></div>
+          </a>
+        </div>
+
+        <div class="lang-ch-content w-full md:w-auto">
+          <a href="/china/hongkong/gallery" class="group relative py-4 px-8 text-center bg-[#121212]/50 backdrop-blur-sm border border-[#C5A059]/10 hover:border-[#C5A059]/60 transition-all duration-300 shadow-lg block">
+            <span class="font-serif text-lg text-gray-300 group-hover:text-[#C5A059] transition-colors tracking-wider block">
+              📁 查看图库
+            </span>
+            <div class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#800000] group-hover:w-full transition-all duration-500"></div>
+          </a>
+        </div>
+      </div>
+
     </div>
-    <a href="/china/hongkong/gallery" class="mt-8 flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold px-6 py-3 rounded-xl backdrop-blur-sm transition-all">
-      📁 查看图库
-    </a>
   </div>
 
 </MainLayout>
+
+<!-- Global Styles -->
+<style is:global>
+  body, html {
+    background-color: #121212 !important;
+    color: #d1d5db;
+    margin: 0;
+    padding: 0;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+  
+  .font-serif {
+    font-family: 'Playfair Display', serif;
+  }
+</style>
+
+<!-- Scoped Layout & Animation Styles -->
+<style>
+  /* Robust CSS to handle language visibility mapping to your MainLayout toggles */
+  .lang-en-content,
+  .lang-th-content,
+  .lang-ch-content {
+    display: none;
+  }
+
+  /* Show text depending on which radio button is active */
+  #lang-en:checked ~ .content-wrapper .lang-en-content,
+  #lang-th:checked ~ .content-wrapper .lang-th-content,
+  #lang-ch:checked ~ .content-wrapper .lang-ch-content {
+    display: block;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
