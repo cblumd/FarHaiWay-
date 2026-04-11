@@ -1,71 +1,127 @@
 ---
 import MainLayout from '../../../layouts/MainLayout.astro';
+// Using the same relative depth as MainLayout to target the assets folder
+import bgImage from '../../../assets/Thailand_at_night.jpg';
 
 const menuItems = [
-  { label: 'Bangkok',   href: '/thailand/bangkok'   },
-  { label: 'Koh Samet', href: '/thailand/kohsamet'  },
-  { separator: true },
-  { label: 'Gallery',   href: '/thailand/nonthaburi/gallery' },
+ { label: 'Bangkok', href: '/thailand/bangkok' },
+ { label: 'Koh Samet', href: '/thailand/kohsamet' },
+ { separator: true },
+ { label: 'Gallery', href: '/thailand/nonthaburi/gallery' },
 ];
 
 const breadcrumbs = [
-  { label: 'Home',     href: '/'         },
-  { label: 'Thailand', href: '/thailand' },
+ { label: 'Home', href: '/' },
+ { label: 'Thailand', href: '/thailand' },
 ];
 ---
+
 <MainLayout title="Nonthaburi | FarHaiWay" menuItems={menuItems} breadcrumbs={breadcrumbs}>
-  <!-- Triggers for Peer Logic -->
-  <input type="radio" name="lang-peer" id="lang-en" class="peer/en hidden" checked />
-  <input type="radio" name="lang-peer" id="lang-th" class="peer/th hidden" />
-  <input type="radio" name="lang-peer" id="lang-ch" class="peer/ch hidden" />
 
-  <div slot="watermark" class="absolute inset-0 z-0 opacity-15 grayscale blur-[60px] pointer-events-none mix-blend-multiply transform scale-110">
-    <svg width="100%" height="100%" preserveAspectRatio="none">
-      <rect width="100%" height="16.66%" fill="#A51931" />
-      <rect y="16.66%" width="100%" height="16.66%" fill="#F4F5F8" />
-      <rect y="33.33%" width="100%" height="33.33%" fill="#2D2A4A" />
-      <rect y="66.66%" width="100%" height="16.66%" fill="#F4F5F8" />
-      <rect y="83.33%" width="100%" height="16.66%" fill="#A51931" />
-    </svg>
-  </div>
+ <style is:global>
+ body, html {
+ background-color: #121212 !important;
+ color: #d1d5db;
+ margin: 0;
+ padding: 0;
+ }
+ /* Import Playfair Display for consistency */
+ @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+ 
+ .font-serif {
+ font-family: 'Playfair Display', serif;
+ }
+ </style>
 
-  <!-- EN -->
-  <div class="hidden peer-checked/en:flex flex-col items-center">
-    <h1 class="text-7xl font-bold text-[#F4E4BC] drop-shadow-md">Nonthaburi</h1>
-    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">Exploring the riverside and local life</p>
-    <div class="max-w-2xl mt-12 bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/20 text-white text-left shadow-lg">
-      <p class="text-lg leading-relaxed mb-4">[Enter text here]</p>
-      <p class="text-lg leading-relaxed">[Enter text here]</p>
-    </div>
-    <a href="/thailand/nonthaburi/gallery" class="mt-8 flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold px-6 py-3 rounded-xl backdrop-blur-sm transition-all">
-      📁 View Gallery
-    </a>
-  </div>
+ <!-- Background: Local Nighttime Satellite Image -->
+ <div class="fixed inset-0 z-[-1] bg-[#121212] overflow-hidden pointer-events-none">
+ <img 
+ src={bgImage.src} 
+ alt="Nighttime satellite view of Thailand" 
+ class="w-full h-full object-cover opacity-50 mix-blend-screen"
+ />
+ <div class="absolute inset-0 bg-gradient-to-b from-[#121212]/90 via-[#121212]/30 to-[#121212]/95"></div>
+ </div>
 
-  <!-- TH -->
-  <div class="hidden peer-checked/th:flex flex-col items-center">
-    <h1 class="text-7xl font-bold text-[#F4E4BC] drop-shadow-md">นนทบุรี</h1>
-    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">สำรวจริมแม่น้ำและวิถีชีวิตท้องถิ่น</p>
-    <div class="max-w-2xl mt-12 bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/20 text-white text-left shadow-lg">
-      <p class="text-lg leading-relaxed mb-4">[กรอกข้อความที่นี่]</p>
-      <p class="text-lg leading-relaxed">[กรอกข้อความที่นี่]</p>
-    </div>
-    <a href="/thailand/nonthaburi/gallery" class="mt-8 flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold px-6 py-3 rounded-xl backdrop-blur-sm transition-all">
-      📁 ดูแกลเลอรี่
-    </a>
-  </div>
+ <!-- Main Content Container (Properly spaced to prevent overlapping and center content) -->
+ <div class="relative z-10 flex flex-col justify-center items-center min-h-[85vh] px-4 py-12 max-w-4xl mx-auto gap-8">
 
-  <!-- CH -->
-  <div class="hidden peer-checked/ch:flex flex-col items-center">
-    <h1 class="text-7xl font-bold text-[#F4E4BC] drop-shadow-md">暖武里</h1>
-    <p class="text-2xl text-[#E0F7FA] mt-4 font-medium tracking-wide">探索河畔与当地生活</p>
-    <div class="max-w-2xl mt-12 bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/20 text-white text-left shadow-lg">
-      <p class="text-lg leading-relaxed mb-4">[在此输入文字]</p>
-      <p class="text-lg leading-relaxed">[在此输入文字]</p>
-    </div>
-    <a href="/thailand/nonthaburi/gallery" class="mt-8 flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-[#F4E4BC] font-bold px-6 py-3 rounded-xl backdrop-blur-sm transition-all">
-      📁 查看图库
-    </a>
-  </div>
+ <!-- Triggers for Peer Logic MUST be direct siblings of the content blocks -->
+ <input type="radio" name="lang-peer" id="lang-en" class="peer/en hidden" checked />
+ <input type="radio" name="lang-peer" id="lang-th" class="peer/th hidden" />
+ <input type="radio" name="lang-peer" id="lang-ch" class="peer/ch hidden" />
+
+ <!-- EN CONTENT -->
+ <div class="hidden peer-checked/en:flex flex-col items-center w-full gap-8 animate-fade-in">
+ <div class="text-center w-full">
+ <h1 class="font-serif text-6xl md:text-8xl font-bold text-[#C5A059] drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)]">Nonthaburi</h1>
+ <p class="text-xl md:text-2xl text-gray-400 mt-4 font-medium tracking-widest uppercase">Exploring the riverside and local life</p>
+ </div>
+ 
+ <div class="w-full bg-[#1a1a1a]/70 backdrop-blur-md border border-[#C5A059]/20 p-8 md:p-10 rounded-sm shadow-2xl text-gray-300">
+ <p class="text-lg leading-relaxed mb-6 italic">[Enter text here]</p>
+ <p class="text-lg leading-relaxed">[Enter text here]</p>
+ </div>
+
+ <a href="/thailand/nonthaburi/gallery" class="group relative py-4 px-10 text-center bg-[#121212]/50 backdrop-blur-sm border border-[#C5A059]/10 hover:border-[#C5A059]/60 transition-all duration-300 shadow-lg w-full md:w-auto mt-4">
+ <span class="font-serif text-xl text-gray-300 group-hover:text-[#C5A059] transition-colors tracking-wider">
+ 📁 View Gallery
+ </span>
+ <div class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#800000] group-hover:w-full transition-all duration-500"></div>
+ </a>
+ </div>
+
+ <!-- TH CONTENT -->
+ <div class="hidden peer-checked/th:flex flex-col items-center w-full gap-8 animate-fade-in">
+ <div class="text-center w-full">
+ <h1 class="font-serif text-6xl md:text-8xl font-bold text-[#C5A059] drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)]">นนทบุรี</h1>
+ <p class="text-xl md:text-2xl text-gray-400 mt-4 font-medium tracking-wide">สำรวจริมแม่น้ำและวิถีชีวิตท้องถิ่น</p>
+ </div>
+ 
+ <div class="w-full bg-[#1a1a1a]/70 backdrop-blur-md border border-[#C5A059]/20 p-8 md:p-10 rounded-sm shadow-2xl text-gray-300">
+ <p class="text-lg leading-relaxed mb-6 italic">[กรอกข้อความที่นี่]</p>
+ <p class="text-lg leading-relaxed">[กรอกข้อความที่นี่]</p>
+ </div>
+
+ <a href="/thailand/nonthaburi/gallery" class="group relative py-4 px-10 text-center bg-[#121212]/50 backdrop-blur-sm border border-[#C5A059]/10 hover:border-[#C5A059]/60 transition-all duration-300 shadow-lg w-full md:w-auto mt-4">
+ <span class="font-serif text-xl text-gray-300 group-hover:text-[#C5A059] transition-colors tracking-wider">
+ 📁 ดูแกลเลอรี่
+ </span>
+ <div class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#800000] group-hover:w-full transition-all duration-500"></div>
+ </a>
+ </div>
+
+ <!-- CH CONTENT -->
+ <div class="hidden peer-checked/ch:flex flex-col items-center w-full gap-8 animate-fade-in">
+ <div class="text-center w-full">
+ <h1 class="font-serif text-6xl md:text-8xl font-bold text-[#C5A059] drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)]">暖武里</h1>
+ <p class="text-xl md:text-2xl text-gray-400 mt-4 font-medium tracking-widest">探索河畔与当地生活</p>
+ </div>
+ 
+ <div class="w-full bg-[#1a1a1a]/70 backdrop-blur-md border border-[#C5A059]/20 p-8 md:p-10 rounded-sm shadow-2xl text-gray-300">
+ <p class="text-lg leading-relaxed mb-6 italic">[在此输入文字]</p>
+ <p class="text-lg leading-relaxed">[在此输入文字]</p>
+ </div>
+
+ <a href="/thailand/nonthaburi/gallery" class="group relative py-4 px-10 text-center bg-[#121212]/50 backdrop-blur-sm border border-[#C5A059]/10 hover:border-[#C5A059]/60 transition-all duration-300 shadow-lg w-full md:w-auto mt-4">
+ <span class="font-serif text-xl text-gray-300 group-hover:text-[#C5A059] transition-colors tracking-wider">
+ 📁 查看图库
+ </span>
+ <div class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#800000] group-hover:w-full transition-all duration-500"></div>
+ </a>
+ </div>
+
+ </div>
 
 </MainLayout>
+
+<style>
+ .animate-fade-in {
+ animation: fadeIn 0.8s ease-out forwards;
+ }
+
+ @keyframes fadeIn {
+ from { opacity: 0; transform: translateY(15px); }
+ to { opacity: 1; transform: translateY(0); }
+ }
+</style>
